@@ -38,6 +38,7 @@ var fV = {
   link: "https://storage.googleapis.com/yepicai-backend.appspot.com/regularBackgrounds/office-background-FHD.png",
   background: "office-background-FHD.png",
 };
+console.log("test2");
 
 function cleanUpMultiLanguageSelectionBasedOnActorGender() {
   console.log("Cleanup multilanguage");
@@ -62,6 +63,7 @@ function selectImages() {
 }
 
 function startUpSelection() {
+  console.log("test1");
   pairActorVoice();
   selectImages();
 }

@@ -104,6 +104,8 @@ $(".form-actor-select-wrap").on("click", ".form-actor", function () {
   fV.actor = $(this).attr("data-actor");
   fV.previewImgSrc = $(this).children("img").attr("src");
   pairActorVoice();
+  cleanUpMultiLanguageSelectionBasedOnActorGender();
+
   $(".form-actor-select-wrap").css({ borderColor: "transparent" });
   $(this).css({ borderColor: "transparent" });
   $(".form-actor-select-wrap .form-actor").css({ borderColor: "transparent" });
@@ -113,7 +115,7 @@ $(".form-actor-select-wrap").on("click", ".form-actor", function () {
     .attr("src", fV.previewImgSrc)
     .load();
   
-  cleanUpMultiLanguageSelectionBasedOnActorGender();
+  
 });
 
 $(".form-tab-voice-wrap").on("click", ".form-voice", function () {

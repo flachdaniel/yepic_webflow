@@ -40,8 +40,15 @@ var fV = {
 };
 console.log("test2");
 
-function cleanUpMultiLanguageSelectionBasedOnActorGender() {
+function cleanUpMultiLanguageSelectionBasedOnActorGender(actorGender) {
   console.log("Cleanup multilanguage");
+  if (actorGender.hasClass("actor-female")) {
+    console.log("Female")
+  }
+  if (actorGender.hasClass("actor-male")) {
+    console.log("Male")
+  }
+
 }
 
 function pairActorVoice() {
@@ -106,7 +113,11 @@ $(".form-actor-select-wrap").on("click", ".form-actor", function () {
   fV.actor = $(this).attr("data-actor");
   fV.previewImgSrc = $(this).children("img").attr("src");
   pairActorVoice();
-  cleanUpMultiLanguageSelectionBasedOnActorGender();
+  actorGender = $(this);
+  console.log("hehe");
+  console.log(actorGender);
+  cleanUpMultiLanguageSelectionBasedOnActorGender(actorGender);
+  
 
   $(".form-actor-select-wrap").css({ borderColor: "transparent" });
   $(this).css({ borderColor: "transparent" });

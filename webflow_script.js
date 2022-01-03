@@ -38,17 +38,36 @@ var fV = {
   link: "https://storage.googleapis.com/yepicai-backend.appspot.com/regularBackgrounds/office-background-FHD.png",
   background: "office-background-FHD.png",
 };
-console.log("test2");
 
 function cleanUpMultiLanguageSelectionBasedOnActorGender(actorGender) {
-  console.log("Cleanup multilanguage");
+  console.log("Cleanup multilanguage 1");
+
   if (actorGender.hasClass("actor-female")) {
-    console.log("Female")
+    console.log("Female");
+
+    $('.voice-female').each(function(i, obj) {
+      console.log($(this))
+      $(this).parent().addClass('display-none')
+    });
+    $('.voice-male').each(function(i, obj) {
+      console.log($(this))
+      $(this).parent().removeClass('display-none')
+    });
+
   }
   if (actorGender.hasClass("actor-male")) {
-    console.log("Male")
-  }
+    console.log("Male");
 
+    $('.voice-male').each(function(i, obj) {
+      console.log($(this))
+      $(this).parent().addClass('display-none')
+    });
+    $('.voice-female').each(function(i, obj) {
+      console.log($(this))
+      $(this).parent().removeClass('display-none')
+    });
+
+  }
 }
 
 function pairActorVoice() {
@@ -70,7 +89,6 @@ function selectImages() {
 }
 
 function startUpSelection() {
-  console.log("test1");
   pairActorVoice();
   selectImages();
 }
@@ -114,8 +132,6 @@ $(".form-actor-select-wrap").on("click", ".form-actor", function () {
   fV.previewImgSrc = $(this).children("img").attr("src");
   pairActorVoice();
   actorGender = $(this);
-  console.log("hehe");
-  console.log(actorGender);
   cleanUpMultiLanguageSelectionBasedOnActorGender(actorGender);
   
 

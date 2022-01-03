@@ -40,18 +40,18 @@ var fV = {
 };
 
 function cleanUpMultiLanguageSelectionBasedOnActorGender(actorGender) {
-  console.log("Cleanup multilanguage 1");
+  console.log("Cleanup multilanguage v2");
 
   if (actorGender.hasClass("actor-female")) {
     console.log("Female");
 
     $('.voice-female').each(function(i, obj) {
       console.log($(this))
-      $(this).parent().addClass('display-none')
+      $(this).parent().parent().removeClass('display-none')
     });
     $('.voice-male').each(function(i, obj) {
       console.log($(this))
-      $(this).parent().removeClass('display-none')
+      $(this).parent().parent().addClass('display-none')
     });
 
   }
@@ -60,11 +60,11 @@ function cleanUpMultiLanguageSelectionBasedOnActorGender(actorGender) {
 
     $('.voice-male').each(function(i, obj) {
       console.log($(this))
-      $(this).parent().addClass('display-none')
+      $(this).parent().parent().removeClass('display-none')
     });
     $('.voice-female').each(function(i, obj) {
       console.log($(this))
-      $(this).parent().removeClass('display-none')
+      $(this).parent().parent().addClass('display-none')
     });
 
   }

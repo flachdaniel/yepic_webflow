@@ -39,6 +39,10 @@ var fV = {
   background: "office-background-FHD.png",
 };
 
+function cleanUpMultiLanguageSelectionBasedOnActorGender() {
+  console.log("Cleanup multilanguage");
+}
+
 function pairActorVoice() {
   fV.voice = voiceActorPair[fV.actor];
   $("[data-voice]").css({ borderColor: "transparent" });
@@ -108,6 +112,8 @@ $(".form-actor-select-wrap").on("click", ".form-actor", function () {
   $($(".preview-img-wrap").children("img")[0])
     .attr("src", fV.previewImgSrc)
     .load();
+  
+  cleanUpMultiLanguageSelectionBasedOnActorGender();
 });
 
 $(".form-tab-voice-wrap").on("click", ".form-voice", function () {

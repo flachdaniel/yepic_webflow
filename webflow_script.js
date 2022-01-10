@@ -45,20 +45,20 @@ var actorTypeSelection = {
 };
 
 
-console.log("------------------------version: 04 ----------------------------");
+console.log("------------------------version: 05 ----------------------------");
 
 
 
 
 //----------- BODY TYPE selection -----------
 //full-body
-$(".tab-title-full").click(function () {
+$("#tab-title-full").click(function () {
   console.log("select full-body");
   fV.position = actorTypeSelection.fullBody;
 
 });
 //circle
-$(".tab-title-circle").click(function () {
+$("#tab-title-circle").click(function () {
   console.log("select circle");
   fV.position = actorTypeSelection.circle;
 

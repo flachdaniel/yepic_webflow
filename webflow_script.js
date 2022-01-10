@@ -45,7 +45,7 @@ var actorTypeSelection = {
 };
 
 
-console.log("------------------------version: 01 ----------------------------");
+console.log("------------------------version: 02 ----------------------------");
 
 function cleanUpMultiLanguageSelectionBasedOnActorGender(actorGender) {
   if (actorGender.hasClass("actor-female")) {
@@ -74,13 +74,13 @@ function cleanUpMultiLanguageSelectionBasedOnActorGender(actorGender) {
 
 //----------- BODY TYPE selection -----------
 //full-body
-$("#w-tabs-3-data-w-tab-0").click(function () {
+$(".tab-title-full").click(function () {
   console.log("select full-body");
   fV.position = actorTypeSelection.fullBody;
 
 });
 //circle
-$("#w-tabs-3-data-w-tab-1").click(function () {
+$(".tab-title-circle").click(function () {
   console.log("select circle");
   fV.position = actorTypeSelection.circle;
 
@@ -273,6 +273,9 @@ MemberStack.onReady.then(function (member) {
   fV.membershipTypeId = $memberstack.membership.status;
 });
 
+
+
+// ------------- SELECT ACTOR -----------------
 $(".form-actor-select-wrap").on("click", ".form-actor", function () {
   fV.videoName = $("#video-name").val();
   fV.actor = $(this).attr("data-actor");
@@ -281,7 +284,6 @@ $(".form-actor-select-wrap").on("click", ".form-actor", function () {
   actorGender = $(this);
   cleanUpMultiLanguageSelectionBasedOnActorGender(actorGender);
   
-
   $(".form-actor-select-wrap").css({ borderColor: "transparent" });
   $(this).css({ borderColor: "transparent" });
   $(".form-actor-select-wrap .form-actor").css({ borderColor: "transparent" });
@@ -290,9 +292,9 @@ $(".form-actor-select-wrap").on("click", ".form-actor", function () {
   $($(".preview-img-wrap").children("img")[0])
     .attr("src", fV.previewImgSrc)
     .load();
-  
-  
 });
+// --------------------------------------------------
+
 
 $(".form-tab-voice-wrap").on("click", ".form-voice", function () {
   if (!$(this).hasClass("form-voice-unavail")) {

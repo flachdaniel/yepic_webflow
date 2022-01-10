@@ -53,7 +53,7 @@ var actorTypePositionSelection = {
 console.log("------------------------version: 02 ----------------------------");
 
 
-// -------------------------- SELECT ACTOR POSITION AND TYPE ------------------------------
+// ------------------------------------------------- SELECT ACTOR POSITION AND TYPE -------------------------------------------------
 
 //----------- Functions (type and positions) -----------
 function selectActorPositionAndType(actorPosition, actorType, imageClassName) {
@@ -79,6 +79,7 @@ function selectActorPositionAndType(actorPosition, actorType, imageClassName) {
   fV.actorPositionType = actorType;
 }; 
 
+//----------- FULL-BODY/CIRCLE Tab selection -----------
 $("#tab-title-full").click(function () {
   console.log("select full-body");
   selectActorPositionAndType(actorTypePositionSelection.classNameFullBody, "full-body", actorTypePositionSelection.classNameFullBodyImage);
@@ -133,7 +134,7 @@ $(".actor-pos-circle-botright").click(function () {
   selectActorPositionAndType(".actor-pos-circle-botright", "circle", "b3");
 });
 
-// -------------------------- SELECT VOICE AND ACTOR ------------------------------
+// ------------------------------------------------- SELECT VOICE AND ACTOR -------------------------------------------------
 
 //----------- Functions (voice and actor) -----------
 function cleanUpVoiceSelectionBasedOnActorGender(actorGender) {
@@ -157,6 +158,13 @@ function cleanUpVoiceSelectionBasedOnActorGender(actorGender) {
   }
 }
 
+function pairActorVoice() {
+  fV.voice = voiceActorPair[fV.actor];
+  $("[data-voice]").css({ borderColor: "transparent" });
+  $("[data-voice=" + fV.voice + "]").css(borderVoice);
+}
+
+//----------- ACTOR selection -----------
 $(".form-actor-select-wrap").on("click", ".form-actor", function () {
   fV.videoName = $("#video-name").val();
   fV.actor = $(this).attr("data-actor");
@@ -180,12 +188,6 @@ $(".form-actor-select-wrap").on("click", ".form-actor", function () {
     .attr("src", fV.previewImgSrc)
     .load();
 });
-
-function pairActorVoice() {
-  fV.voice = voiceActorPair[fV.actor];
-  $("[data-voice]").css({ borderColor: "transparent" });
-  $("[data-voice=" + fV.voice + "]").css(borderVoice);
-}
 
 function InitializeSelections() {
   $("[data-actor='Alex']").css(borderCss);

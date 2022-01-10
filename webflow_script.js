@@ -68,7 +68,7 @@ function selectActorPositionAndType(actorPosition, actorType, imageClassName) {
 
   fV.position = actorPosition.attr("data-position");
   console.log(fV.position);
-  actorTypeSelection.fullBody = fV.position;
+  actorTypePositionSelection.fullBody = fV.position;
   $(".actor-pos").css({ borderColor: "transparent" });
   $(actorPosition).css(borderCss);
 

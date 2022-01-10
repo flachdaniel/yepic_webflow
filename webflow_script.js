@@ -240,7 +240,7 @@ function selectImages() {
 // ---------------------- START -------------------------
 function startUpSelection() {
   // pairActorVoice(); ez az ami bugos
-  selectImage();
+  selectImages();
   cleanUpVoiceSelectionBasedOnActorGender('actor-male');
 }
 setTimeout(startUpSelection, 1000);

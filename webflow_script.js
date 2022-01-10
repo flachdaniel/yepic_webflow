@@ -49,11 +49,15 @@ var actorTypePositionSelection = {
 };
 
 
-var actorPositionAndToImageWrapperClassMap = {
+var actorPositionToClassMap = {
+  'left': ".actor-pos-left",
+  'centre': ".actor-pos-mid",
+  'right': ".actor-pos-right",
+  'circle-topleft': "actor-pos-circle-topleft",
 
 }
 
-console.log("------------------------version: 09 ----------------------------");
+console.log("------------------------version: 01 ----------------------------");
 
 // data-positions:
 // full body:
@@ -64,20 +68,22 @@ console.log("------------------------version: 09 ----------------------------");
 // circle-botleft circle-botcentre circle-botright
 
 function selectActorPositionAndType(actorPosition, actorType, imageClassName) {
-  console.log("------------ position: " + actorPosition.attr("data-position") + " and type: " + actorType);
-  position = actorPosition.attr("data-position");
+  console.log("------------ position: " + $(actorPosition).attr("data-position") + " and type: " + actorType);
+  position = $(actorPosition).attr("data-position");
 
   $(".actor-pos").css({ borderColor: "transparent" });
-  $(actorPosition).css(borderCss);
+  $($(actorPosition)).css(borderCss);
 
   if (actorType == "full-body") {
     actorTypePositionSelection.fullBody = position;
+    actorTypePositionSelection.classNameFullBody = ""; // CLASSNAME FULLBODY
     $(".preview-img-wrap").removeClass("preview-img-left preview-img-mid preview-img-right");
     $(".preview-img-wrap").addClass(imageClassName);
   };
 
   if (actorType == "circle") {
     actorTypePositionSelection.circle = position;
+    actorTypePositionSelection.classNameCircle = ""; // CLASSNAME circle
     $(".preview-circle-img-wrap").removeClass("t1 t2 t3 m1 m2 m3 b1 b2 b3");
     $(".preview-circle-img-wrap").addClass(imageClassName);
   }
@@ -87,39 +93,33 @@ function selectActorPositionAndType(actorPosition, actorType, imageClassName) {
 }; 
 
 
-//----------------------------------- Change between full-body and circle tab ------------------------------------
+//----------- Change between full-body and circle tab -----------
 //full-body
 $("#tab-title-full").click(function () {
   console.log("select full-body");
   selectActorPositionAndType($(actorTypePositionSelection.classNameFullBody), "full-body", actorTypePositionSelection.fullBody);
-
-  
   fV.actorType = "full-body";
   fV.position = actorTypePositionSelection.fullBody;
-
 });
 
 //circle
 $("#tab-title-circle").click(function () {
   console.log("select circle");
   selectActorPositionAndType($(actorTypePositionSelection.classNameCircle), "circle", actorTypePositionSelection.circle);
-
-  
   fV.actorType = "circle";
   fV.position = actorTypePositionSelection.circle;
-
 });
 
 
 //----------- FULL-BODY selection -----------
 $(".actor-pos-left").click(function () {
-  selectActorPositionAndType($(this), "full-body", "preview-img-left");
+  selectActorPositionAndType(".actor-pos-left", "full-body", "preview-img-left");
 });
 $(".actor-pos-mid").click(function () {
-  selectActorPositionAndType($(this), "full-body", "preview-img-mid");
+  selectActorPositionAndType(".actor-pos-mid", "full-body", "preview-img-mid");
 });
 $(".actor-pos-right").click(function () {
-  selectActorPositionAndType($(this), "full-body", "preview-img-right");
+  selectActorPositionAndType(".actor-pos-right", "full-body", "preview-img-right");
 });
 
 
@@ -199,6 +199,7 @@ function startUpSelection() {
   // pairActorVoice(); ez az ami bugos
   selectImages();
   cleanUpVoiceSelectionBasedOnActorGender('actor-male');
+  selectActorPositionAndType(actorTypePositionSelection.classNameFullBody, "full-body", "preview-img-mid");
 }
 setTimeout(startUpSelection, 1000);
 

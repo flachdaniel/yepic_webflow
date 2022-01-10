@@ -46,17 +46,11 @@ var actorTypePositionSelection = {
   circle: "circle-midcentre",
   classNameFullBody: ".actor-pos-mid",
   classNameCircle: ".actor-pos-circle-midcentre",
+  classNameFullBodyImage: "preview-img-mid",
+  classNameCircleImage: "m2",
 };
 
-
-var actorPositionToClassMap = {
-  'left': ".actor-pos-left",
-  'centre': ".actor-pos-mid",
-  'right': ".actor-pos-right",
-  'circle-topleft': "actor-pos-circle-topleft",
-}
-
-console.log("------------------------version: 03 ----------------------------");
+console.log("------------------------version: 04 ----------------------------");
 
 // data-positions:
 // full body:
@@ -76,6 +70,7 @@ function selectActorPositionAndType(actorPosition, actorType, imageClassName) {
   if (actorType == "full-body") {
     actorTypePositionSelection.fullBody = position;
     actorTypePositionSelection.classNameFullBody = actorPosition;
+    actorTypePositionSelection.classNameFullBodyImage = imageClassName;
     $(".preview-img-wrap").removeClass("preview-img-left preview-img-mid preview-img-right");
     $(".preview-img-wrap").addClass(imageClassName);
   };
@@ -83,6 +78,7 @@ function selectActorPositionAndType(actorPosition, actorType, imageClassName) {
   if (actorType == "circle") {
     actorTypePositionSelection.circle = position;
     actorTypePositionSelection.classNameCircle = actorPosition;
+    actorTypePositionSelection.classNameCircleImage = imageClassName;
     $(".preview-circle-img-wrap").removeClass("t1 t2 t3 m1 m2 m3 b1 b2 b3");
     $(".preview-circle-img-wrap").addClass(imageClassName);
   }
@@ -96,7 +92,7 @@ function selectActorPositionAndType(actorPosition, actorType, imageClassName) {
 //full-body
 $("#tab-title-full").click(function () {
   console.log("select full-body");
-  selectActorPositionAndType(actorTypePositionSelection.classNameFullBody, "full-body", actorTypePositionSelection.fullBody);
+  selectActorPositionAndType(actorTypePositionSelection.classNameFullBody, "full-body", actorTypePositionSelection.classNameFullBodyImage);
   fV.actorType = "full-body";
   fV.position = actorTypePositionSelection.fullBody;
 });
@@ -104,7 +100,7 @@ $("#tab-title-full").click(function () {
 //circle
 $("#tab-title-circle").click(function () {
   console.log("select circle");
-  selectActorPositionAndType(actorTypePositionSelection.classNameCircle, "circle", actorTypePositionSelection.circle);
+  selectActorPositionAndType(actorTypePositionSelection.classNameCircle, "circle", actorTypePositionSelection.classNameCircleImage);
   fV.actorType = "circle";
   fV.position = actorTypePositionSelection.circle;
 });
@@ -198,7 +194,7 @@ function startUpSelection() {
   // pairActorVoice(); ez az ami bugos
   selectImages();
   cleanUpVoiceSelectionBasedOnActorGender('actor-male');
-  selectActorPositionAndType(actorTypePositionSelection.classNameFullBody, "full-body", "preview-img-mid");
+  selectActorPositionAndType(actorTypePositionSelection.classNameFullBody, "full-body", actorTypePositionSelection.classNameFullBodyImage);
 }
 setTimeout(startUpSelection, 1000);
 

@@ -50,63 +50,47 @@ var actorTypePositionSelection = {
   classNameCircleImage: "m2",
 };
 
-console.log("------------------------version: 05 ----------------------------");
+console.log("------------------------version: 02 ----------------------------");
 
-// data-positions:
-// full body:
-// left, centre, right
-// circle:
-// circle-topleft circle-topcentre circle-topright
-// circle-midleft circle-midcentre circle-midright
-// circle-botleft circle-botcentre circle-botright
 
+// -------------------------- SELECT ACTOR POSITION AND TYPE ------------------------------
+
+//----------- Functions (type and positions) -----------
 function selectActorPositionAndType(actorPosition, actorType, imageClassName) {
   console.log("------------ position: " + $(actorPosition).attr("data-position") + " and type: " + actorType);
   position = $(actorPosition).attr("data-position");
-
   $(".actor-pos").css({ borderColor: "transparent" });
   $($(actorPosition)).css(borderCss);
-
   if (actorType == "full-body") {
     actorTypePositionSelection.fullBody = position;
     actorTypePositionSelection.classNameFullBody = actorPosition;
     actorTypePositionSelection.classNameFullBodyImage = imageClassName;
-    $(".preview-circle-img-wrap").removeClass("t1 t2 t3 m1 m2 m3 b1 b2 b3");
     $(".preview-img-wrap").removeClass("preview-img-left preview-img-mid preview-img-right");
     $(".preview-img-wrap").addClass(imageClassName);
   };
-
   if (actorType == "circle") {
     actorTypePositionSelection.circle = position;
     actorTypePositionSelection.classNameCircle = actorPosition;
     actorTypePositionSelection.classNameCircleImage = imageClassName;
-    $(".preview-img-wrap").removeClass("preview-img-left preview-img-mid preview-img-right");
     $(".preview-circle-img-wrap").removeClass("t1 t2 t3 m1 m2 m3 b1 b2 b3");
     $(".preview-circle-img-wrap").addClass(imageClassName);
   }
-
   fV.position = position;
   fV.actorPositionType = actorType;
 }; 
 
-
-//----------- Change between full-body and circle tab -----------
-//full-body
 $("#tab-title-full").click(function () {
   console.log("select full-body");
   selectActorPositionAndType(actorTypePositionSelection.classNameFullBody, "full-body", actorTypePositionSelection.classNameFullBodyImage);
   fV.actorType = "full-body";
   fV.position = actorTypePositionSelection.fullBody;
 });
-
-//circle
 $("#tab-title-circle").click(function () {
   console.log("select circle");
   selectActorPositionAndType(actorTypePositionSelection.classNameCircle, "circle", actorTypePositionSelection.classNameCircleImage);
   fV.actorType = "circle";
   fV.position = actorTypePositionSelection.circle;
 });
-
 
 //----------- FULL-BODY selection -----------
 $(".actor-pos-left").click(function () {
@@ -149,9 +133,9 @@ $(".actor-pos-circle-botright").click(function () {
   selectActorPositionAndType(".actor-pos-circle-botright", "circle", "b3");
 });
 
+// -------------------------- SELECT VOICE AND ACTOR ------------------------------
 
-// ------------------------------------------------------------------------------------------------
-
+//----------- Functions (voice and actor) -----------
 function cleanUpVoiceSelectionBasedOnActorGender(actorGender) {
   if (actorGender == "actor-female") {
     console.log("Female");
@@ -173,6 +157,30 @@ function cleanUpVoiceSelectionBasedOnActorGender(actorGender) {
   }
 }
 
+$(".form-actor-select-wrap").on("click", ".form-actor", function () {
+  fV.videoName = $("#video-name").val();
+  fV.actor = $(this).attr("data-actor");
+  fV.previewImgSrc = $(this).children("img").attr("src");
+  // pairActorVoice(); ?
+
+  actorGender = $(this);
+  if (actorGender.hasClass('actor-female')) {
+    cleanUpVoiceSelectionBasedOnActorGender('actor-female');
+  };
+  if (actorGender.hasClass('actor-male')) {
+    cleanUpVoiceSelectionBasedOnActorGender('actor-male');
+  };
+
+  $(".form-actor-select-wrap").css({ borderColor: "transparent" });
+  $(this).css({ borderColor: "transparent" });
+  $(".form-actor-select-wrap .form-actor").css({ borderColor: "transparent" });
+  $($(this)).css(borderCss);
+  $($(".preview-img-wrap").children("img")[0]).attr("srcset", "");
+  $($(".preview-img-wrap").children("img")[0])
+    .attr("src", fV.previewImgSrc)
+    .load();
+});
+
 function pairActorVoice() {
   fV.voice = voiceActorPair[fV.actor];
   $("[data-voice]").css({ borderColor: "transparent" });
@@ -180,28 +188,30 @@ function pairActorVoice() {
 }
 
 function InitializeSelections() {
-  $(".preview-img-wrap").css("opacity", 1);
   $("[data-actor='Alex']").css(borderCss);
   $("[data-background='office-background-FHD.png']").css(borderCss);
-  $($(".preview-img-wrap").children("img")[0]).attr("src", fV.previewImgSrc);
   $($($(".preview-bg")[0])[0]).css({
     backgroundImage: defaultBackground,
     opacity: 1,
   });
+}
 
+function InitializeActorPositionAndTypeSelection() {
+  $($(".preview-img-wrap").children("img")[0]).attr("src", fV.previewImgSrc); // ?
+  $(".preview-img-wrap").css("opacity", 1); // ?
+
+  $(".preview-img-wrap").show();
+  $(".preview-circle-img-wrap").hide();
   selectActorPositionAndType(actorTypePositionSelection.classNameFullBody, "full-body", actorTypePositionSelection.classNameFullBodyImage);
   fV.actorType = "full-body";
   fV.position = actorTypePositionSelection.fullBody;
 }
 
-function InitializeActorPositionAndTypeSelection() {
-  
-}
-
 // ---------------------- START -------------------------
 function startUpSelection() {
-  // pairActorVoice(); ez az ami bugos
+  // pairActorVoice(); ?
   InitializeSelections();
+  InitializeActorPositionAndTypeSelection();
   cleanUpVoiceSelectionBasedOnActorGender('actor-male');
 }
 setTimeout(startUpSelection, 1000);
@@ -236,35 +246,6 @@ MemberStack.onReady.then(function (member) {
   fV.id = member["id"];
   fV.membershipTypeId = $memberstack.membership.status;
 });
-
-
-
-// ------------- SELECT ACTOR -----------------
-$(".form-actor-select-wrap").on("click", ".form-actor", function () {
-  fV.videoName = $("#video-name").val();
-  fV.actor = $(this).attr("data-actor");
-  fV.previewImgSrc = $(this).children("img").attr("src");
-  pairActorVoice();
-
-  actorGender = $(this);
-  if (actorGender.hasClass('actor-female')) {
-    cleanUpVoiceSelectionBasedOnActorGender('actor-female');
-  };
-  if (actorGender.hasClass('actor-male')) {
-    cleanUpVoiceSelectionBasedOnActorGender('actor-male');
-  };
-
-  $(".form-actor-select-wrap").css({ borderColor: "transparent" });
-  $(this).css({ borderColor: "transparent" });
-  $(".form-actor-select-wrap .form-actor").css({ borderColor: "transparent" });
-  $($(this)).css(borderCss);
-  $($(".preview-img-wrap").children("img")[0]).attr("srcset", "");
-  $($(".preview-img-wrap").children("img")[0])
-    .attr("src", fV.previewImgSrc)
-    .load();
-});
-// --------------------------------------------------
-
 
 $(".form-tab-voice-wrap").on("click", ".form-voice", function () {
   if (!$(this).hasClass("form-voice-unavail")) {
@@ -310,6 +291,9 @@ $("#background-selection").on("click", "#background-select", function () {
 $("#background-selection2").on("click", "#customBackground", function () {
   previewCustomUpload();
 });
+
+
+
 function send_request() {
   var formErrors = false;
   fV.script = $("#video-script").val();

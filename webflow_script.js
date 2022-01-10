@@ -47,29 +47,7 @@ var actorTypeSelection = {
 
 console.log("------------------------version: 04 ----------------------------");
 
-function cleanUpVoiceSelectionBasedOnActorGender(actorGender) {
-  if (actorGender == "actor-female") {
-    console.log("Female");
 
-    $('.voice-female').each(function(i, obj) {
-      $(this).parent().parent().removeClass('display-none')
-    });
-    $('.voice-male').each(function(i, obj) {
-      $(this).parent().parent().addClass('display-none')
-    });
-  }
-  if (actorGender == "actor-male") {
-    console.log("Male");
-
-    $('.voice-male').each(function(i, obj) {
-      $(this).parent().parent().removeClass('display-none')
-    });
-    $('.voice-female').each(function(i, obj) {
-      $(this).parent().parent().addClass('display-none')
-    });
-
-  }
-}
 
 
 //----------- BODY TYPE selection -----------
@@ -217,6 +195,30 @@ $(".actor-pos-circle-botright").click(function () {
 
 // --------------------------------------------------
 
+function cleanUpVoiceSelectionBasedOnActorGender(actorGender) {
+  if (actorGender == "actor-female") {
+    console.log("Female");
+
+    $('.voice-female').each(function(i, obj) {
+      $(this).parent().parent().removeClass('display-none')
+    });
+    $('.voice-male').each(function(i, obj) {
+      $(this).parent().parent().addClass('display-none')
+    });
+  }
+  if (actorGender == "actor-male") {
+    console.log("Male");
+
+    $('.voice-male').each(function(i, obj) {
+      $(this).parent().parent().removeClass('display-none')
+    });
+    $('.voice-female').each(function(i, obj) {
+      $(this).parent().parent().addClass('display-none')
+    });
+
+  }
+}
+
 function pairActorVoice() {
   fV.voice = voiceActorPair[fV.actor];
   $("[data-voice]").css({ borderColor: "transparent" });
@@ -235,12 +237,12 @@ function selectImages() {
   });
 }
 
+// ---------------------- START -------------------------
 function startUpSelection() {
   // pairActorVoice(); ez az ami bugos
-  selectImagesAlex();
+  selectImage();
   cleanUpVoiceSelectionBasedOnActorGender('actor-male');
 }
-
 setTimeout(startUpSelection, 1000);
 
 function checkListenPreview() {

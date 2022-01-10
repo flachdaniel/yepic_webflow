@@ -54,10 +54,9 @@ var actorPositionToClassMap = {
   'centre': ".actor-pos-mid",
   'right': ".actor-pos-right",
   'circle-topleft': "actor-pos-circle-topleft",
-
 }
 
-console.log("------------------------version: 02 ----------------------------");
+console.log("------------------------version: 03 ----------------------------");
 
 // data-positions:
 // full body:
@@ -76,14 +75,14 @@ function selectActorPositionAndType(actorPosition, actorType, imageClassName) {
 
   if (actorType == "full-body") {
     actorTypePositionSelection.fullBody = position;
-    actorTypePositionSelection.classNameFullBody = ""; // CLASSNAME FULLBODY
+    actorTypePositionSelection.classNameFullBody = actorPosition;
     $(".preview-img-wrap").removeClass("preview-img-left preview-img-mid preview-img-right");
     $(".preview-img-wrap").addClass(imageClassName);
   };
 
   if (actorType == "circle") {
     actorTypePositionSelection.circle = position;
-    actorTypePositionSelection.classNameCircle = ""; // CLASSNAME circle
+    actorTypePositionSelection.classNameCircle = actorPosition;
     $(".preview-circle-img-wrap").removeClass("t1 t2 t3 m1 m2 m3 b1 b2 b3");
     $(".preview-circle-img-wrap").addClass(imageClassName);
   }

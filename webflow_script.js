@@ -57,7 +57,7 @@ var actorPositionToClassMap = {
 
 }
 
-console.log("------------------------version: 01 ----------------------------");
+console.log("------------------------version: 02 ----------------------------");
 
 // data-positions:
 // full body:
@@ -97,7 +97,7 @@ function selectActorPositionAndType(actorPosition, actorType, imageClassName) {
 //full-body
 $("#tab-title-full").click(function () {
   console.log("select full-body");
-  selectActorPositionAndType($(actorTypePositionSelection.classNameFullBody), "full-body", actorTypePositionSelection.fullBody);
+  selectActorPositionAndType(actorTypePositionSelection.classNameFullBody, "full-body", actorTypePositionSelection.fullBody);
   fV.actorType = "full-body";
   fV.position = actorTypePositionSelection.fullBody;
 });
@@ -105,7 +105,7 @@ $("#tab-title-full").click(function () {
 //circle
 $("#tab-title-circle").click(function () {
   console.log("select circle");
-  selectActorPositionAndType($(actorTypePositionSelection.classNameCircle), "circle", actorTypePositionSelection.circle);
+  selectActorPositionAndType(actorTypePositionSelection.classNameCircle, "circle", actorTypePositionSelection.circle);
   fV.actorType = "circle";
   fV.position = actorTypePositionSelection.circle;
 });
@@ -125,31 +125,31 @@ $(".actor-pos-right").click(function () {
 
 //----------- CIRCLE-BODY selection -----------
 $(".actor-pos-circle-topleft").click(function () {
-  selectActorPositionAndType($(this), "circle", "t1");
+  selectActorPositionAndType(".actor-pos-circle-topleft", "circle", "t1");
 });
 $(".actor-pos-circle-topcentre").click(function () {
-  selectActorPositionAndType($(this), "circle", "t2");
+  selectActorPositionAndType(".actor-pos-circle-topcentre", "circle", "t2");
 });
 $(".actor-pos-circle-topright").click(function () {
-  selectActorPositionAndType($(this), "circle", "t3");
+  selectActorPositionAndType(".actor-pos-circle-topright", "circle", "t3");
 });
 $(".actor-pos-circle-midleft").click(function () {
-  selectActorPositionAndType($(this), "circle", "m1");
+  selectActorPositionAndType(".actor-pos-circle-midleft", "circle", "m1");
 });
 $(".actor-pos-circle-midcentre").click(function () {
-  selectActorPositionAndType($(this), "circle", "m2");
+  selectActorPositionAndType(".actor-pos-circle-midcentre", "circle", "m2");
 });
 $(".actor-pos-circle-midright").click(function () {
-  selectActorPositionAndType($(this), "circle", "m3");
+  selectActorPositionAndType(".actor-pos-circle-midright", "circle", "m3");
 });
 $(".actor-pos-circle-botleft").click(function () {
-  selectActorPositionAndType($(this), "circle", "b1");
+  selectActorPositionAndType(".actor-pos-circle-botleft", "circle", "b1");
 });
 $(".actor-pos-circle-botcentre").click(function () {
-  selectActorPositionAndType($(this), "circle", "b2");
+  selectActorPositionAndType(".actor-pos-circle-botcentre", "circle", "b2");
 });
 $(".actor-pos-circle-botright").click(function () {
-  selectActorPositionAndType($(this), "circle", "b3");
+  selectActorPositionAndType(".actor-pos-circle-botright", "circle", "b3");
 });
 
 

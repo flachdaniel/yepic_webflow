@@ -50,7 +50,7 @@ var actorTypePositionSelection = {
   classNameCircleImage: "m2",
 };
 
-console.log("------------------------version: 04 ----------------------------");
+console.log("------------------------version: 05 ----------------------------");
 
 // data-positions:
 // full body:
@@ -177,10 +177,11 @@ function pairActorVoice() {
   $("[data-voice=" + fV.voice + "]").css(borderVoice);
 }
 
-function selectImages() {
+function InitializeSelections() {
   $(".preview-img-wrap").css("opacity", 1);
   $("[data-actor='Alex']").css(borderCss);
-  $($(".actor-pos-mid")).css(borderCss);
+  $("#tab-title-full").addClass("w--current");
+  $("#tab-title-circle").removeClass("w--current");
   $("[data-background='office-background-FHD.png']").css(borderCss);
   $($(".preview-img-wrap").children("img")[0]).attr("src", fV.previewImgSrc);
   $($($(".preview-bg")[0])[0]).css({
@@ -189,12 +190,15 @@ function selectImages() {
   });
 }
 
+function InitializeActorPositionAndTypeSelection() {
+  
+}
+
 // ---------------------- START -------------------------
 function startUpSelection() {
   // pairActorVoice(); ez az ami bugos
-  selectImages();
+  InitializeSelections();
   cleanUpVoiceSelectionBasedOnActorGender('actor-male');
-  selectActorPositionAndType(actorTypePositionSelection.classNameFullBody, "full-body", actorTypePositionSelection.classNameFullBodyImage);
 }
 setTimeout(startUpSelection, 1000);
 

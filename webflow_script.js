@@ -48,7 +48,7 @@ var actorTypeSelection = {
 console.log("------------------------version: 02 ----------------------------");
 
 function cleanUpMultiLanguageSelectionBasedOnActorGender(actorGender) {
-  if (actorGender.hasClass("actor-female")) {
+  if (actorGender == "actor-female") {
     console.log("Female");
 
     $('.voice-female').each(function(i, obj) {
@@ -58,7 +58,7 @@ function cleanUpMultiLanguageSelectionBasedOnActorGender(actorGender) {
       $(this).parent().parent().addClass('display-none')
     });
   }
-  if (actorGender.hasClass("actor-male")) {
+  if (actorGender == "actor-male") {
     console.log("Male");
 
     $('.voice-male').each(function(i, obj) {
@@ -282,7 +282,15 @@ $(".form-actor-select-wrap").on("click", ".form-actor", function () {
   fV.previewImgSrc = $(this).children("img").attr("src");
   pairActorVoice();
   actorGender = $(this);
-  cleanUpMultiLanguageSelectionBasedOnActorGender(actorGender);
+
+  if (actorGender.hasClass('actor-female')) {
+    cleanUpMultiLanguageSelectionBasedOnActorGender('actor-female');
+  };
+  if (actorGender.hasClass('actor-male')) {
+    cleanUpMultiLanguageSelectionBasedOnActorGender('actor-male');
+  };
+
+  
   
   $(".form-actor-select-wrap").css({ borderColor: "transparent" });
   $(this).css({ borderColor: "transparent" });

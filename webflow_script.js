@@ -44,7 +44,7 @@ var fV = {
 var actorTypePositionSelection = {
   fullBody: "centre",
   circle: "circle-midcentre",
-  className = "actor-pos-mid",
+  className: "actor-pos-mid",
 };
 
 console.log("------------------------version: 06 ----------------------------");

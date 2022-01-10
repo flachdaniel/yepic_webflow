@@ -45,9 +45,9 @@ var actorTypeSelection = {
 };
 
 
-console.log("------------------------version: 02 ----------------------------");
+console.log("------------------------version: 04 ----------------------------");
 
-function cleanUpMultiLanguageSelectionBasedOnActorGender(actorGender) {
+function cleanUpVoiceSelectionBasedOnActorGender(actorGender) {
   if (actorGender == "actor-female") {
     console.log("Female");
 
@@ -236,8 +236,9 @@ function selectImages() {
 }
 
 function startUpSelection() {
-  pairActorVoice();
-  selectImages();
+  // pairActorVoice(); ez az ami bugos
+  selectImagesAlex();
+  cleanUpVoiceSelectionBasedOnActorGender('actor-male');
 }
 
 setTimeout(startUpSelection, 1000);
@@ -281,17 +282,15 @@ $(".form-actor-select-wrap").on("click", ".form-actor", function () {
   fV.actor = $(this).attr("data-actor");
   fV.previewImgSrc = $(this).children("img").attr("src");
   pairActorVoice();
-  actorGender = $(this);
 
+  actorGender = $(this);
   if (actorGender.hasClass('actor-female')) {
-    cleanUpMultiLanguageSelectionBasedOnActorGender('actor-female');
+    cleanUpVoiceSelectionBasedOnActorGender('actor-female');
   };
   if (actorGender.hasClass('actor-male')) {
-    cleanUpMultiLanguageSelectionBasedOnActorGender('actor-male');
+    cleanUpVoiceSelectionBasedOnActorGender('actor-male');
   };
 
-  
-  
   $(".form-actor-select-wrap").css({ borderColor: "transparent" });
   $(this).css({ borderColor: "transparent" });
   $(".form-actor-select-wrap .form-actor").css({ borderColor: "transparent" });

@@ -81,14 +81,16 @@ function selectActorPositionAndType(actorPosition, actorType, imageClassName) {
 
 //----------- FULL-BODY/CIRCLE Tab selection -----------
 $("#tab-title-full").click(function () {
-  console.log("select full-body");
   selectActorPositionAndType(actorTypePositionSelection.classNameFullBody, "full-body", actorTypePositionSelection.classNameFullBodyImage);
+  $(".preview-img-wrap").show();
+  $(".preview-circle-img-wrap").hide();
   fV.actorType = "full-body";
   fV.position = actorTypePositionSelection.fullBody;
 });
 $("#tab-title-circle").click(function () {
-  console.log("select circle");
   selectActorPositionAndType(actorTypePositionSelection.classNameCircle, "circle", actorTypePositionSelection.classNameCircleImage);
+  $(".preview-img-wrap").hide();
+  $(".preview-circle-img-wrap").show();
   fV.actorType = "circle";
   fV.position = actorTypePositionSelection.circle;
 });
@@ -139,7 +141,6 @@ $(".actor-pos-circle-botright").click(function () {
 //----------- Functions (voice and actor) -----------
 function cleanUpVoiceSelectionBasedOnActorGender(actorGender) {
   if (actorGender == "actor-female") {
-    console.log("Female");
     $('.voice-female').each(function(i, obj) {
       $(this).parent().parent().removeClass('display-none')
     });
@@ -148,7 +149,6 @@ function cleanUpVoiceSelectionBasedOnActorGender(actorGender) {
     });
   }
   if (actorGender == "actor-male") {
-    console.log("Male");
     $('.voice-male').each(function(i, obj) {
       $(this).parent().parent().removeClass('display-none')
     });

@@ -23,6 +23,16 @@ var defaultBackground = "url(https://assets-global.website-files.com/603a1632f3d
 var VL = {};
 var backgroundClass = " ";
 var newClass;
+var circleBackgroundColorMap = {
+  c1: "fda949",
+  c2: "7567d8",
+  c3: "f75151",
+  c4: "463a78",
+  c5: "65d3f8",
+  c6: "11acb0",
+  c7: "89ae47",
+  c8: "ebeaf0",
+};
 
 var fV = {
   actor: "Alex",
@@ -78,18 +88,18 @@ function selectActorPositionAndType(actorPosition, actorType, imageClassName) {
 //----------- FULL-BODY/CIRCLE Tab selection -----------
 $("#tab-title-full").click(function () {
   selectActorPositionAndType(actorTypePositionSelection.classNameFullBody, "full-body", actorTypePositionSelection.classNameFullBodyImage);
+  $(".preview-img-wrap").children("img").attr("src", fV.previewImgSrc);
   $(".preview-img-wrap").show();
   $(".preview-circle-img-wrap").hide();
-  $(".preview-img-wrap").children("img").attr("src", fV.previewImgSrc);
   console.log("1");
   fV.actorType = "full-body";
   fV.position = actorTypePositionSelection.fullBody;
 });
 $("#tab-title-circle").click(function () {
   selectActorPositionAndType(actorTypePositionSelection.classNameCircle, "circle", actorTypePositionSelection.classNameCircleImage);
+  $(".preview-circle-img-wrap").children().children("img").attr("src", fV.previewImgSrc);
   $(".preview-img-wrap").hide();
   $(".preview-circle-img-wrap").show();
-  $(".preview-circle-img-wrap").children().children("img").attr("src", fV.previewImgSrc);
   console.log("2");
   fV.actorType = "circle";
   fV.position = actorTypePositionSelection.circle;

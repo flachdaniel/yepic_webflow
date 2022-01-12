@@ -50,7 +50,10 @@ var actorTypePositionSelection = {
   classNameCircleImage: "m2",
 };
 
-console.log("------------------------version: 02 ----------------------------");
+
+// Page load first steps
+$(".preview-circle-img-wrap").hide();
+console.log("------------------------version: 03 ----------------------------");
 
 
 // ------------------------------------------------- SELECT ACTOR POSITION AND TYPE -------------------------------------------------
@@ -185,8 +188,8 @@ $(".form-actor-select-wrap").on("click", ".form-actor", function () {
   $(".form-actor-select-wrap .form-actor").css({ borderColor: "transparent" });
   $($(this)).css(borderCss);
 
-  $($(".preview-img-wrap").children("img")[0]).attr("srcset", "");
-  $($(".preview-img-wrap").children("img")[0]).attr("src", fV.previewImgSrc).load();
+  //$($(".preview-img-wrap").children("img")[0]).attr("srcset", "");
+  //$($(".preview-img-wrap").children("img")[0]).attr("src", fV.previewImgSrc).load();
 
   //$($(".preview-circle-img-wrap").children("img")[0]).attr("srcset", "");
   
@@ -207,8 +210,6 @@ function InitializeSelections() {
 }
 
 function InitializeActorPositionAndTypeSelection() {
-  $(".preview-circle-img-wrap").hide();
-
   $($(".preview-img-wrap").children("img")[0]).attr("src", fV.previewImgSrc); // ?
   $(".preview-img-wrap").css("opacity", 1); // ?
   $(".preview-img-wrap").show();

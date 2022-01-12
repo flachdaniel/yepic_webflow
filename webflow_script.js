@@ -189,14 +189,11 @@ $(".form-actor-select-wrap").on("click", ".form-actor", function () {
   $($(this)).css(borderCss);
 
   //$($(".preview-img-wrap").children("img")[0]).attr("srcset", "");
-  //$($(".preview-img-wrap").children("img")[0]).attr("src", fV.previewImgSrc).load();
+  $(".preview-img-wrap").children("img").attr("src", fV.previewImgSrc).load();
 
-  //$($(".preview-circle-img-wrap").children("img")[0]).attr("srcset", "");
-  
-  console.log('set circle image actor')
-  $(".preview-circle-img-wrap").children().children("img").attr("src", fV.previewImgSrc).load();
+  //console.log('set circle image actor')
+  //$(".preview-circle-img-wrap").children().children("img").attr("src", fV.previewImgSrc).load();
 
-  //$($(".preview-circle-img-wrap").children().children("img")[0]).attr("src", fV.previewImgSrc).load();
 });
 
 function InitializeSelections() {

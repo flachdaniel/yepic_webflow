@@ -50,7 +50,7 @@ var actorTypePositionSelection = {
   classNameCircleImage: "m2",
 };
 
-console.log("------------------------version: 01 ----------------------------");
+console.log("------------------------version: 02 ----------------------------");
 
 
 // ------------------------------------------------- SELECT ACTOR POSITION AND TYPE -------------------------------------------------
@@ -189,6 +189,10 @@ $(".form-actor-select-wrap").on("click", ".form-actor", function () {
   $($(".preview-img-wrap").children("img")[0]).attr("src", fV.previewImgSrc).load();
 
   //$($(".preview-circle-img-wrap").children("img")[0]).attr("srcset", "");
+  
+  console.log('set circle image actor')
+  $(".preview-circle-img-wrap").children().children("img").attr("src", fV.previewImgSrc).load();
+  console.log('set circle image actor 2')
 
   $($(".preview-circle-img-wrap").children().children("img")[0]).attr("src", fV.previewImgSrc).load();
 });
@@ -203,11 +207,11 @@ function InitializeSelections() {
 }
 
 function InitializeActorPositionAndTypeSelection() {
+  $(".preview-circle-img-wrap").hide();
+
   $($(".preview-img-wrap").children("img")[0]).attr("src", fV.previewImgSrc); // ?
   $(".preview-img-wrap").css("opacity", 1); // ?
-
   $(".preview-img-wrap").show();
-  $(".preview-circle-img-wrap").hide();
   selectActorPositionAndType(actorTypePositionSelection.classNameFullBody, "full-body", actorTypePositionSelection.classNameFullBodyImage);
   fV.actorType = "full-body";
   fV.position = actorTypePositionSelection.fullBody;
@@ -216,8 +220,8 @@ function InitializeActorPositionAndTypeSelection() {
 // ---------------------- START -------------------------
 function startUpSelection() {
   // pairActorVoice(); ?
-  InitializeSelections();
   InitializeActorPositionAndTypeSelection();
+  InitializeSelections();
   cleanUpVoiceSelectionBasedOnActorGender('actor-male');
 }
 setTimeout(startUpSelection, 1000);

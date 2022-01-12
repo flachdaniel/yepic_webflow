@@ -50,7 +50,7 @@ var actorTypePositionSelection = {
   classNameCircleImage: "m2",
 };
 
-console.log("------------------------version: 02 ----------------------------");
+console.log("------------------------version: 01 ----------------------------");
 
 
 // ------------------------------------------------- SELECT ACTOR POSITION AND TYPE -------------------------------------------------
@@ -181,12 +181,15 @@ $(".form-actor-select-wrap").on("click", ".form-actor", function () {
 
   $(".form-actor-select-wrap").css({ borderColor: "transparent" });
   $(this).css({ borderColor: "transparent" });
+
   $(".form-actor-select-wrap .form-actor").css({ borderColor: "transparent" });
   $($(this)).css(borderCss);
+
   $($(".preview-img-wrap").children("img")[0]).attr("srcset", "");
-  $($(".preview-img-wrap").children("img")[0])
-    .attr("src", fV.previewImgSrc)
-    .load();
+  $($(".preview-img-wrap").children("img")[0]).attr("src", fV.previewImgSrc).load();
+
+  $($(".preview-circle-img-wrap").children("img")[0]).attr("srcset", "");
+  $($(".preview-circle-img-wrap").children("img")[0]).attr("src", fV.previewImgSrc)
 });
 
 function InitializeSelections() {

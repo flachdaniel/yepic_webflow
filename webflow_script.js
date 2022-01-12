@@ -85,8 +85,10 @@ function selectActorPositionAndType(actorPosition, actorType, imageClassName) {
   fV.actorPositionType = actorType;
 };
 
-function changeCircleBackgroundByHex(hexcode) {
-  console.log("hehe")
+function changeCircleBackground(backgroundcolor) {
+  console.log(circleBackgroundColorMap.backgroundcolor);
+  fV.circleBackgroundColor = circleBackgroundColorMap.backgroundcolor;
+  console.log(backgroundcolor);
 };
 
 //----------- FULL-BODY/CIRCLE Tab selection -----------
@@ -155,7 +157,28 @@ $(".actor-pos-circle-botright").click(function () {
 
 //----------- CIRCLE BACKGROUND selection -----------
 $(".form-tab-bg.c1").click(function () {
-  console.log("asdasd");
+  changeCircleBackground("c1");
+});
+$(".form-tab-bg.c2").click(function () {
+  changeCircleBackground("c2");
+});
+$(".form-tab-bg.c3").click(function () {
+  changeCircleBackground("c3");
+});
+$(".form-tab-bg.c4").click(function () {
+  changeCircleBackground("c4");
+});
+$(".form-tab-bg.c5").click(function () {
+  changeCircleBackground("c5");
+});
+$(".form-tab-bg.c6").click(function () {
+  changeCircleBackground("c6");
+});
+$(".form-tab-bg.c7").click(function () {
+  changeCircleBackground("c7");
+});
+$(".form-tab-bg.c8").click(function () {
+  changeCircleBackground("c8");
 });
 
 

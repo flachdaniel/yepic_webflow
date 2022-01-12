@@ -46,7 +46,7 @@ var actorTypePositionSelection = {
 
 // Page load first steps
 $(".preview-circle-img-wrap").hide();
-console.log("------------------------version: 01 ----------------------------");
+console.log("------------------------version: 02 ----------------------------");
 
 
 // ------------------------------------------------- SELECT ACTOR POSITION AND TYPE -------------------------------------------------
@@ -157,7 +157,7 @@ function cleanUpVoiceSelectionBasedOnActorGender(actorGender) {
 }
 
 //----------- ACTOR selection -----------
-$(".form-actor-select-wrap").on("click", ".form-actor", function () {
+$(".form-actor-select-wrap").on("click", $(".form-actor"), function () {
   fV.videoName = $("#video-name").val();
   fV.actor = $(this).attr("data-actor");
   fV.previewImgSrc = $(this).children("img").attr("src");

@@ -56,7 +56,7 @@ var actorTypePositionSelection = {
 
 // Page load first steps
 $(".preview-circle-img-wrap").hide();
-console.log("------------------------version: 02 ----------------------------");
+console.log("------------------------version: 03 ----------------------------");
 
 
 // ------------------------------------------------- SELECT ACTOR POSITION AND TYPE -------------------------------------------------

@@ -53,7 +53,7 @@ var actorTypePositionSelection = {
 
 // Page load first steps
 $(".preview-circle-img-wrap").hide();
-console.log("------------------------version: 03 ----------------------------");
+console.log("------------------------version: 01 ----------------------------");
 
 
 // ------------------------------------------------- SELECT ACTOR POSITION AND TYPE -------------------------------------------------
@@ -195,9 +195,8 @@ $(".form-actor-select-wrap").on("click", ".form-actor", function () {
   
   console.log('set circle image actor')
   $(".preview-circle-img-wrap").children().children("img").attr("src", fV.previewImgSrc).load();
-  console.log('set circle image actor 2')
 
-  $($(".preview-circle-img-wrap").children().children("img")[0]).attr("src", fV.previewImgSrc).load();
+  //$($(".preview-circle-img-wrap").children().children("img")[0]).attr("src", fV.previewImgSrc).load();
 });
 
 function InitializeSelections() {

@@ -81,6 +81,7 @@ $("#tab-title-full").click(function () {
   $(".preview-img-wrap").show();
   $(".preview-circle-img-wrap").hide();
   $(".preview-img-wrap").children("img").attr("src", fV.previewImgSrc);
+  console.log("1");
   fV.actorType = "full-body";
   fV.position = actorTypePositionSelection.fullBody;
 });
@@ -89,6 +90,7 @@ $("#tab-title-circle").click(function () {
   $(".preview-img-wrap").hide();
   $(".preview-circle-img-wrap").show();
   $(".preview-circle-img-wrap").children().children("img").attr("src", fV.previewImgSrc);
+  console.log("2");
   fV.actorType = "circle";
   fV.position = actorTypePositionSelection.circle;
 });
@@ -178,7 +180,6 @@ $(".form-actor-select-wrap").on("click", ".form-actor", function () {
 
   if (fV.actorPositionType == "full-body") {
     $(".preview-img-wrap").children("img").attr("src", fV.previewImgSrc);
-    console.log("ez lefut")
   }
   if (fV.actorPositionType == "circle") {
     $(".preview-circle-img-wrap").children().children("img").attr("src", fV.previewImgSrc);

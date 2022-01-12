@@ -56,7 +56,7 @@ var actorTypePositionSelection = {
 
 // Page load first steps
 $(".preview-circle-img-wrap").hide();
-console.log("------------------------version: 01 ----------------------------");
+console.log("------------------------version: 02 ----------------------------");
 
 
 // ------------------------------------------------- SELECT ACTOR POSITION AND TYPE -------------------------------------------------
@@ -83,14 +83,18 @@ function selectActorPositionAndType(actorPosition, actorType, imageClassName) {
   }
   fV.position = position;
   fV.actorPositionType = actorType;
-}; 
+};
+
+function changeCircleBackgroundByHex(hexcode) {
+  console.log("hehe")
+};
 
 //----------- FULL-BODY/CIRCLE Tab selection -----------
 $("#tab-title-full").click(function () {
   selectActorPositionAndType(actorTypePositionSelection.classNameFullBody, "full-body", actorTypePositionSelection.classNameFullBodyImage);
   $(".preview-img-wrap").children("img").attr("src", fV.previewImgSrc);
-  $(".preview-img-wrap").show();
   $(".preview-circle-img-wrap").hide();
+  $(".preview-img-wrap").show();
   console.log("1");
   fV.actorType = "full-body";
   fV.position = actorTypePositionSelection.fullBody;
@@ -145,6 +149,16 @@ $(".actor-pos-circle-botcentre").click(function () {
 $(".actor-pos-circle-botright").click(function () {
   selectActorPositionAndType(".actor-pos-circle-botright", "circle", "b3");
 });
+
+
+
+
+//----------- CIRCLE BACKGROUND selection -----------
+$(".form-tab-bg.c1").click(function () {
+  console.log("asdasd");
+});
+
+
 
 // ------------------------------------------------- SELECT VOICE AND ACTOR -------------------------------------------------
 

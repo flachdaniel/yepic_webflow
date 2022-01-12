@@ -177,11 +177,11 @@ $(".form-actor-select-wrap").on("click", ".form-actor", function () {
   $($(this)).css(borderCss);
 
   if (fV.actorPositionType == "full-body") {
-    $(".preview-img-wrap").children("img").attr("src", fV.previewImgSrc).load();
+    $(".preview-img-wrap").children("img").attr("src", fV.previewImgSrc);
     console.log("ez lefut")
   }
   if (fV.actorPositionType == "circle") {
-    $(".preview-circle-img-wrap").children().children("img").attr("src", fV.previewImgSrc).load();
+    $(".preview-circle-img-wrap").children().children("img").attr("src", fV.previewImgSrc);
   }
 
 });

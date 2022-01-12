@@ -80,7 +80,7 @@ $("#tab-title-full").click(function () {
   selectActorPositionAndType(actorTypePositionSelection.classNameFullBody, "full-body", actorTypePositionSelection.classNameFullBodyImage);
   $(".preview-img-wrap").show();
   $(".preview-circle-img-wrap").hide();
-  //$(".preview-img-wrap").children("img").attr("src", fV.previewImgSrc).load();
+  $(".preview-img-wrap").children("img").attr("src", fV.previewImgSrc);
   fV.actorType = "full-body";
   fV.position = actorTypePositionSelection.fullBody;
 });
@@ -88,7 +88,7 @@ $("#tab-title-circle").click(function () {
   selectActorPositionAndType(actorTypePositionSelection.classNameCircle, "circle", actorTypePositionSelection.classNameCircleImage);
   $(".preview-img-wrap").hide();
   $(".preview-circle-img-wrap").show();
-  //$(".preview-circle-img-wrap").children().children("img").attr("src", fV.previewImgSrc).load();
+  $(".preview-circle-img-wrap").children().children("img").attr("src", fV.previewImgSrc);
   fV.actorType = "circle";
   fV.position = actorTypePositionSelection.circle;
 });

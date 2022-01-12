@@ -15,18 +15,11 @@ const redBorderCss = {
   borderStyle: "solid",
   borderWidth: "2px",
 };
-const voiceActorPair = {
-  Alex: "Jeremy",
-  Linda: "Alana",
-  Syrine: "Nicole",
-  Isabel: "Jenny",
-};
 var submitted = false;
 var stateChanged = false;
 var previewDisabled = true;
 var scriptLengthOk = false;
-var defaultBackground =
-  "url(https://assets-global.website-files.com/603a1632f3d4a6c0f66872b9/607d6b85eba5a8278fce538a_office-background-FHD.png)";
+var defaultBackground = "url(https://assets-global.website-files.com/603a1632f3d4a6c0f66872b9/607d6b85eba5a8278fce538a_office-background-FHD.png)";
 var VL = {};
 var backgroundClass = " ";
 var newClass;
@@ -36,8 +29,7 @@ var fV = {
   actorPositionType: "full-body",
   position: "centre",
   circleBackgroundColor: "",
-  previewImgSrc:
-    "https://assets-global.website-files.com/603a1632f3d4a6c0f66872b9/6082b99fff1618b81cc1b433_khamal-p-500.png",
+  previewImgSrc: "https://assets-global.website-files.com/603a1632f3d4a6c0f66872b9/6082b99fff1618b81cc1b433_khamal-p-500.png",
   link: "https://storage.googleapis.com/yepicai-backend.appspot.com/regularBackgrounds/office-background-FHD.png",
   background: "office-background-FHD.png",
 };
@@ -164,18 +156,11 @@ function cleanUpVoiceSelectionBasedOnActorGender(actorGender) {
   }
 }
 
-function pairActorVoice() {
-  fV.voice = voiceActorPair[fV.actor];
-  $("[data-voice]").css({ borderColor: "transparent" });
-  $("[data-voice=" + fV.voice + "]").css(borderVoice);
-}
-
 //----------- ACTOR selection -----------
 $(".form-actor-select-wrap").on("click", ".form-actor", function () {
   fV.videoName = $("#video-name").val();
   fV.actor = $(this).attr("data-actor");
   fV.previewImgSrc = $(this).children("img").attr("src");
-  // pairActorVoice(); ?
 
   actorGender = $(this);
   if (actorGender.hasClass('actor-female')) {
@@ -210,7 +195,6 @@ function InitializeSelections() {
 }
 
 function InitializeActorPositionAndTypeSelection() {
-  $($(".preview-img-wrap").children("img")[0]).attr("src", fV.previewImgSrc); // ?
   $(".preview-img-wrap").css("opacity", 1); // ?
   $(".preview-img-wrap").show();
   selectActorPositionAndType(actorTypePositionSelection.classNameFullBody, "full-body", actorTypePositionSelection.classNameFullBodyImage);
@@ -220,7 +204,6 @@ function InitializeActorPositionAndTypeSelection() {
 
 // ---------------------- START -------------------------
 function startUpSelection() {
-  // pairActorVoice(); ?
   InitializeActorPositionAndTypeSelection();
   InitializeSelections();
   cleanUpVoiceSelectionBasedOnActorGender('actor-male');

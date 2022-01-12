@@ -46,7 +46,7 @@ var actorTypePositionSelection = {
 
 // Page load first steps
 $(".preview-circle-img-wrap").hide();
-console.log("------------------------version: 02 ----------------------------");
+console.log("------------------------version: 01 ----------------------------");
 
 
 // ------------------------------------------------- SELECT ACTOR POSITION AND TYPE -------------------------------------------------
@@ -157,7 +157,7 @@ function cleanUpVoiceSelectionBasedOnActorGender(actorGender) {
 }
 
 //----------- ACTOR selection -----------
-$(".form-actor-select-wrap").on("click", $(".form-actor"), function () {
+$(".form-actor-select-wrap").on("click", ".form-actor", function () {
   fV.videoName = $("#video-name").val();
   fV.actor = $(this).attr("data-actor");
   fV.previewImgSrc = $(this).children("img").attr("src");
@@ -178,7 +178,7 @@ $(".form-actor-select-wrap").on("click", $(".form-actor"), function () {
 
   if (fV.actorPositionType == "full-body") {
     $(".preview-img-wrap").children("img").attr("src", fV.previewImgSrc).load();
-    console.log("ez lefut ?")
+    console.log("ez lefut")
   }
   if (fV.actorPositionType == "circle") {
     $(".preview-circle-img-wrap").children().children("img").attr("src", fV.previewImgSrc).load();

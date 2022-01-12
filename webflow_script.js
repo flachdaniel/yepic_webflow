@@ -88,6 +88,7 @@ $("#tab-title-full").click(function () {
   selectActorPositionAndType(actorTypePositionSelection.classNameFullBody, "full-body", actorTypePositionSelection.classNameFullBodyImage);
   $(".preview-img-wrap").show();
   $(".preview-circle-img-wrap").hide();
+  $(".preview-img-wrap").children("img").attr("src", fV.previewImgSrc).load();
   fV.actorType = "full-body";
   fV.position = actorTypePositionSelection.fullBody;
 });
@@ -95,6 +96,7 @@ $("#tab-title-circle").click(function () {
   selectActorPositionAndType(actorTypePositionSelection.classNameCircle, "circle", actorTypePositionSelection.classNameCircleImage);
   $(".preview-img-wrap").hide();
   $(".preview-circle-img-wrap").show();
+  $(".preview-circle-img-wrap").children().children("img").attr("src", fV.previewImgSrc).load();
   fV.actorType = "circle";
   fV.position = actorTypePositionSelection.circle;
 });
@@ -189,9 +191,12 @@ $(".form-actor-select-wrap").on("click", ".form-actor", function () {
   $(".form-actor-select-wrap .form-actor").css({ borderColor: "transparent" });
   $($(this)).css(borderCss);
 
-  $(".preview-img-wrap").children("img").attr("src", fV.previewImgSrc).load();
-
-  $(".preview-circle-img-wrap").children().children("img").attr("src", fV.previewImgSrc).load();
+  if (fV.actorPositionType == "full-body") {
+    $(".preview-img-wrap").children("img").attr("src", fV.previewImgSrc).load();
+  }
+  if (fV.actorPositionType == "circle") {
+    $(".preview-circle-img-wrap").children().children("img").attr("src", fV.previewImgSrc).load();
+  }
 
 });
 

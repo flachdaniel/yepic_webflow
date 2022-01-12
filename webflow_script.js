@@ -35,6 +35,7 @@ var fV = {
   actor: "Alex",
   actorPositionType: "full-body",
   position: "centre",
+  circleBackgroundColor: "",
   previewImgSrc:
     "https://assets-global.website-files.com/603a1632f3d4a6c0f66872b9/6082b99fff1618b81cc1b433_khamal-p-500.png",
   link: "https://storage.googleapis.com/yepicai-backend.appspot.com/regularBackgrounds/office-background-FHD.png",
@@ -188,11 +189,9 @@ $(".form-actor-select-wrap").on("click", ".form-actor", function () {
   $(".form-actor-select-wrap .form-actor").css({ borderColor: "transparent" });
   $($(this)).css(borderCss);
 
-  //$($(".preview-img-wrap").children("img")[0]).attr("srcset", "");
   $(".preview-img-wrap").children("img").attr("src", fV.previewImgSrc).load();
 
-  //console.log('set circle image actor')
-  //$(".preview-circle-img-wrap").children().children("img").attr("src", fV.previewImgSrc).load();
+  $(".preview-circle-img-wrap").children().children("img").attr("src", fV.previewImgSrc).load();
 
 });
 

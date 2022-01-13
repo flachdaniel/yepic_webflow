@@ -39,6 +39,7 @@ var fV = {
   actorPositionType: "full-body",
   position: "centre",
   circleBackgroundColor: "",
+  circleRimColor: "",
   previewImgSrc: "https://assets-global.website-files.com/603a1632f3d4a6c0f66872b9/6082b99fff1618b81cc1b433_khamal-p-500.png",
   link: "https://storage.googleapis.com/yepicai-backend.appspot.com/regularBackgrounds/office-background-FHD.png",
   background: "office-background-FHD.png",
@@ -122,7 +123,6 @@ $(".actor-pos-right").click(function () {
   selectActorPositionAndType(".actor-pos-right", "full-body", "preview-img-right");
 });
 
-
 //----------- CIRCLE-BODY selection -----------
 $(".actor-pos-circle-topleft").click(function () {
   selectActorPositionAndType(".actor-pos-circle-topleft", "circle", "t1");
@@ -152,9 +152,6 @@ $(".actor-pos-circle-botright").click(function () {
   selectActorPositionAndType(".actor-pos-circle-botright", "circle", "b3");
 });
 
-
-
-
 //----------- CIRCLE BACKGROUND selection -----------
 $(".form-tab-bg.c1").click(function () {
   changeCircleBackground("c1");
@@ -180,8 +177,6 @@ $(".form-tab-bg.c7").click(function () {
 $(".form-tab-bg.c8").click(function () {
   changeCircleBackground("c8");
 });
-
-
 
 // ------------------------------------------------- SELECT VOICE AND ACTOR -------------------------------------------------
 

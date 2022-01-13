@@ -57,7 +57,7 @@ var actorTypePositionSelection = {
 
 // Page load first steps
 $(".preview-circle-img-wrap").hide();
-console.log("------------------------version: 03 ----------------------------");
+console.log("------------------------version: 01 ----------------------------");
 
 
 // ------------------------------------------------- SELECT ACTOR POSITION AND TYPE -------------------------------------------------
@@ -86,10 +86,10 @@ function selectActorPositionAndType(actorPosition, actorType, imageClassName) {
   fV.actorPositionType = actorType;
 };
 
-function changeCircleBackground(backgroundcolor) {
-  console.log(circleBackgroundColorMap.backgroundcolor);
-  fV.circleBackgroundColor = circleBackgroundColorMap.backgroundcolor;
-  console.log(backgroundcolor);
+function changeCircleBackground(backgroundColor) {
+  let hexCode = circleBackgroundColorMap(backgroundColor)
+  fV.circleBackgroundColor = hexCode;
+  console.log(hexCode);
 };
 
 //----------- FULL-BODY/CIRCLE Tab selection -----------

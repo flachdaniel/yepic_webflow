@@ -24,16 +24,15 @@ var VL = {};
 var backgroundClass = " ";
 var newClass;
 var circleBackgroundColorMap = {
-  c1: "fda949",
-  c2: "7567d8",
-  c3: "f75151",
-  c4: "463a78",
-  c5: "65d3f8",
-  c6: "11acb0",
-  c7: "89ae47",
-  c8: "ebeaf0",
+  c1: "#fda949",
+  c2: "#7567d8",
+  c3: "#f75151",
+  c4: "#463a78",
+  c5: "#65d3f8",
+  c6: "#11acb0",
+  c7: "#89ae47",
+  c8: "#ebeaf0",
 };
-
 var fV = {
   actor: "Alex",
   actorPositionType: "full-body",
@@ -44,7 +43,6 @@ var fV = {
   link: "https://storage.googleapis.com/yepicai-backend.appspot.com/regularBackgrounds/office-background-FHD.png",
   background: "office-background-FHD.png",
 };
-
 var actorTypePositionSelection = {
   fullBody: "centre",
   circle: "circle-midcentre",
@@ -53,7 +51,6 @@ var actorTypePositionSelection = {
   classNameFullBodyImage: "preview-img-mid",
   classNameCircleImage: "m2",
 };
-
 
 // Page load first steps
 $(".preview-circle-img-wrap").hide();
@@ -85,13 +82,12 @@ function selectActorPositionAndType(actorPosition, actorType, imageClassName) {
   fV.position = position;
   fV.actorPositionType = actorType;
 };
-
-function changeCircleBackground(backgroundColor) {
-  let hexCode = circleBackgroundColorMap[backgroundColor];
+function changeCircleBackground(hexCode) {
+  console.log(hexCode);
   fV.circleBackgroundColor = hexCode;
   $("#previewCircImg").removeClass("c1 c2 c3 c4 c5 c6 c7 c8");
   $("#previewCircImg").addClass(backgroundColor);
-  console.log(hexCode);
+  
 };
 
 //----------- FULL-BODY/CIRCLE Tab selection -----------
@@ -155,30 +151,10 @@ $(".actor-pos-circle-botright").click(function () {
 });
 
 //----------- CIRCLE BACKGROUND selection -----------
-$(".form-tab-bg.c1").click(function () {
-  changeCircleBackground("c1");
-});
-$(".form-tab-bg.c2").click(function () {
-  changeCircleBackground("c2");
-});
-$(".form-tab-bg.c3").click(function () {
-  changeCircleBackground("c3");
-});
-$(".form-tab-bg.c4").click(function () {
-  changeCircleBackground("c4");
-});
-$(".form-tab-bg.c5").click(function () {
-  changeCircleBackground("c5");
-});
-$(".form-tab-bg.c6").click(function () {
-  changeCircleBackground("c6");
-});
-$(".form-tab-bg.c7").click(function () {
-  changeCircleBackground("c7");
-});
-$(".form-tab-bg.c8").click(function () {
-  changeCircleBackground("c8");
-});
+
+$(".form-circ-colours").on("click", "#circle-background-select", function () {
+  changeCircleBackground($(this).attr("data-hexcode"));
+}
 
 // ------------------------------------------------- SELECT VOICE AND ACTOR -------------------------------------------------
 
@@ -231,6 +207,48 @@ $(".form-actor-select-wrap").on("click", ".form-actor", function () {
 
 });
 
+// class="preview-bg form-tab-bg c5"
+
+// ------------------------------------------------- SELECT BACKGROUND -------------------------------------------------
+function previewCustomUpload() {
+  fV.background = "custom";
+  var newSrc = $("#customBackground").children("img").attr("src");
+  var newURL = "url(" + fV.link + ")";
+  newClass = "custom-background";
+  $("#background-selection #background-select").css({
+    borderColor: "transparent",
+  });
+  $($(this)).css(borderCss);
+  var previewBg = $($($(".preview-bg")[0])[0]);
+  previewBg.removeClass(backgroundClass);
+  previewBg.addClass(newClass);
+  previewBg.css({ backgroundImage: newURL, opacity: 1 });
+  backgroundClass = newClass;
+}
+
+$("#background-selection").on("click", "#background-select", function () {
+  fV.background = "non-custom";
+  fV.link = $(this).attr("data-background");
+  $("#background-selection #background-select").css({
+    borderColor: "transparent",
+  });
+  $("#customBackground").css({ borderColor: "transparent" });
+  $(".form-tab-bg-wrap").css({ borderColor: "transparent" });
+  $($(this)).css(borderCss);
+  newClass = $(this).attr("class");
+  newClassCss = "." + newClass.split(" ")[1];
+  var backgroundImageCss = $(newClassCss).css("background-image");
+  $($($(".preview-bg")[0])[0]).removeClass(backgroundClass);
+  $($($(".preview-bg")[0])[0]).addClass(newClass);
+  $($($(".preview-bg")[0])[0]).css("background-image", backgroundImageCss);
+  backgroundClass = newClass;
+});
+$("#background-selection2").on("click", "#customBackground", function () {
+  previewCustomUpload();
+});
+
+
+// ---------------------- INITIALIZE -------------------------
 function InitializeSelections() {
   $("[data-actor='Alex']").css(borderCss);
   $("[data-background='office-background-FHD.png']").css(borderCss);
@@ -248,7 +266,6 @@ function InitializeActorPositionAndTypeSelection() {
   fV.position = actorTypePositionSelection.fullBody;
 }
 
-// ---------------------- START -------------------------
 function startUpSelection() {
   InitializeActorPositionAndTypeSelection();
   InitializeSelections();
@@ -256,6 +273,14 @@ function startUpSelection() {
 }
 setTimeout(startUpSelection, 1000);
 
+MemberStack.onReady.then(function (member) {
+  fV.email = member["email"];
+  fV.name = member["name"];
+  fV.id = member["id"];
+  fV.membershipTypeId = $memberstack.membership.status;
+});
+
+// ------------------------------------------------- SELECT VOICE (this part is not refactored yet) -------------------------------------------------
 function checkListenPreview() {
   if (scriptLengthOk && fV.voice != 0) {
     previewDisabled = false;
@@ -263,29 +288,6 @@ function checkListenPreview() {
     $("#tooltip").css("opacity", 0);
   }
 }
-
-function previewCustomUpload() {
-  fV.background = "custom";
-  var newSrc = $("#customBackground").children("img").attr("src");
-  var newURL = "url(" + fV.link + ")";
-  newClass = "custom-background";
-  $("#background-selection #background-select").css({
-    borderColor: "transparent",
-  });
-  $($(this)).css(borderCss);
-  var previewBg = $($($(".preview-bg")[0])[0]);
-  previewBg.removeClass(backgroundClass);
-  previewBg.addClass(newClass);
-  previewBg.css({ backgroundImage: newURL, opacity: 1 });
-  backgroundClass = newClass;
-}
-
-MemberStack.onReady.then(function (member) {
-  fV.email = member["email"];
-  fV.name = member["name"];
-  fV.id = member["id"];
-  fV.membershipTypeId = $memberstack.membership.status;
-});
 
 $(".form-tab-voice-wrap").on("click", ".form-voice", function () {
   if (!$(this).hasClass("form-voice-unavail")) {
@@ -310,29 +312,6 @@ $("#customAudio").on("click", function () {
     checkListenPreview();
   }
 });
-
-$("#background-selection").on("click", "#background-select", function () {
-  fV.background = "non-custom";
-  fV.link = $(this).attr("data-background");
-  $("#background-selection #background-select").css({
-    borderColor: "transparent",
-  });
-  $("#customBackground").css({ borderColor: "transparent" });
-  $(".form-tab-bg-wrap").css({ borderColor: "transparent" });
-  $($(this)).css(borderCss);
-  newClass = $(this).attr("class");
-  newClassCss = "." + newClass.split(" ")[1];
-  var backgroundImageCss = $(newClassCss).css("background-image");
-  $($($(".preview-bg")[0])[0]).removeClass(backgroundClass);
-  $($($(".preview-bg")[0])[0]).addClass(newClass);
-  $($($(".preview-bg")[0])[0]).css("background-image", backgroundImageCss);
-  backgroundClass = newClass;
-});
-$("#background-selection2").on("click", "#customBackground", function () {
-  previewCustomUpload();
-});
-
-
 
 function send_request() {
   var formErrors = false;

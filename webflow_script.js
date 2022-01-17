@@ -372,6 +372,9 @@ var stagin = "7kl8v392xfycx5qms9vy4d05csufq6ry";
 function send_r() {
   submitted = true;
 
+  console.log("Send request: ");
+  console.log(fV);
+
   $.ajax({
     url: "https://hook.integromat.com/" + prod,
     type: "POST",

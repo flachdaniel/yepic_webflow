@@ -104,7 +104,9 @@ function changeCircleBackground(colorObject) {
   if (colorObject.hasClass('c8')) {
     backgroundColorClass = 'c8'
   }
+
   $('#circle-background-select').each(function() {
+    console.log("test1")
     $(this).css({ borderColor: "transparent" });
   });
 

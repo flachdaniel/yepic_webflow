@@ -32,6 +32,8 @@ var fV = {
   previewImgSrc: "https://assets-global.website-files.com/603a1632f3d4a6c0f66872b9/6082b99fff1618b81cc1b433_khamal-p-500.png",
   link: "https://storage.googleapis.com/yepicai-backend.appspot.com/regularBackgrounds/office-background-FHD.png",
   background: "office-background-FHD.png",
+  size: "100",
+  circleSize: "100",
 };
 var actorTypePositionSelection = {
   fullBody: "centre",
@@ -334,6 +336,8 @@ function send_request() {
   fV.script = $("#video-script").val();
   fV.videoName = $("#video-name").val();
   fV.size = $("#size").val();
+  fV.circleSize = $("#size-circle").val();
+
   if (fV.videoName.length < 1) {
     formErrors = true;
     $(".form-name-wrap").css(redBorderCss);

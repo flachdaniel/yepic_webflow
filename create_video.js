@@ -346,9 +346,11 @@ function send_request() {
   if (fV.actorPositionType == "full-body") {
     fV.circleBackgroundColor = "";
     fV.size = $("#size").val();
+    fV.circleSize = "";
   }
   if (fV.actorPositionType == "circle") {
     fV.circleSize = $("#size-circle").val();
+    fV.size = "";
   }
   
   if (fV.videoName.length < 1) {

@@ -154,7 +154,7 @@ $(".actor-pos-circle-botright").click(function () {
 
 $(".form-circ-colours").on("click", "#circle-background-select", function () {
   changeCircleBackground($(this).attr("data-hexcode"));
-}
+});
 
 // ------------------------------------------------- SELECT VOICE AND ACTOR -------------------------------------------------
 

@@ -104,6 +104,8 @@ function changeCircleBackground(colorObject) {
   if (colorObject.hasClass('c8')) {
     backgroundColorClass = 'c8'
   }
+  $("#circle-background-select").css({ borderColor: "transparent" });
+  colorObject.css(borderCss);
   $("#previewCircImg").removeClass("c1 c2 c3 c4 c5 c6 c7 c8");
   $("#previewCircImg").addClass(backgroundColorClass);
 };
@@ -337,6 +339,7 @@ function send_request() {
   fV.videoName = $("#video-name").val();
 
   if (fV.actorPositionType == "full-body") {
+    fV.circleBackgroundColor = "";
     fV.size = $("#size").val();
   }
   if (fV.actorPositionType == "circle") {

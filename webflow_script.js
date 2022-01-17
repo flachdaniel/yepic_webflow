@@ -23,16 +23,6 @@ var defaultBackground = "url(https://assets-global.website-files.com/603a1632f3d
 var VL = {};
 var backgroundClass = " ";
 var newClass;
-var circleBackgroundColorMap = {
-  c1: "#fda949",
-  c2: "#7567d8",
-  c3: "#f75151",
-  c4: "#463a78",
-  c5: "#65d3f8",
-  c6: "#11acb0",
-  c7: "#89ae47",
-  c8: "#ebeaf0",
-};
 var fV = {
   actor: "Alex",
   actorPositionType: "full-body",
@@ -54,7 +44,7 @@ var actorTypePositionSelection = {
 
 // Page load first steps
 $(".preview-circle-img-wrap").hide();
-console.log("------------------------version: 01 ----------------------------");
+console.log("------------------------version: 02 ----------------------------");
 
 
 // ------------------------------------------------- SELECT ACTOR POSITION AND TYPE -------------------------------------------------
@@ -82,12 +72,38 @@ function selectActorPositionAndType(actorPosition, actorType, imageClassName) {
   fV.position = position;
   fV.actorPositionType = actorType;
 };
-function changeCircleBackground(hexCode) {
-  console.log(hexCode);
-  fV.circleBackgroundColor = hexCode;
+
+function changeCircleBackground(colorObject) {
+  hexCode = colorObject.attr("data-hexcode");
+  fV.circleBackgroundColor = "#" + hexCode;
+  console.log(fV.circleBackgroundColor);
+
+  if (colorObject.hasClass('c1')) {
+    backgroundColorClass = 'c1'
+  }
+  if (colorObject.hasClass('c2')) {
+    backgroundColorClass = 'c2'
+  }
+  if (colorObject.hasClass('c3')) {
+    backgroundColorClass = 'c3'
+  }
+  if (colorObject.hasClass('c4')) {
+    backgroundColorClass = 'c4'
+  }
+  if (colorObject.hasClass('c5')) {
+    backgroundColorClass = 'c5'
+  }
+  if (colorObject.hasClass('c6')) {
+    backgroundColorClass = 'c6'
+  }
+  if (colorObject.hasClass('c7')) {
+    backgroundColorClass = 'c7'
+  }
+  if (colorObject.hasClass('c8')) {
+    backgroundColorClass = 'c8'
+  }
   $("#previewCircImg").removeClass("c1 c2 c3 c4 c5 c6 c7 c8");
-  $("#previewCircImg").addClass(backgroundColor);
-  
+  $("#previewCircImg").addClass(backgroundColorClass);
 };
 
 //----------- FULL-BODY/CIRCLE Tab selection -----------
@@ -153,7 +169,7 @@ $(".actor-pos-circle-botright").click(function () {
 //----------- CIRCLE BACKGROUND selection -----------
 
 $(".form-circ-colours").on("click", "#circle-background-select", function () {
-  changeCircleBackground($(this).attr("data-hexcode"));
+  changeCircleBackground($(this));
 });
 
 // ------------------------------------------------- SELECT VOICE AND ACTOR -------------------------------------------------

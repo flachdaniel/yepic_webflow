@@ -104,12 +104,7 @@ function changeCircleBackground(colorObject) {
   if (colorObject.hasClass('c8')) {
     backgroundColorClass = 'c8'
   }
-
-  $('#circle-background-select').each(function() {
-    console.log("test1")
-    $(this).css({ borderColor: "transparent" });
-  });
-  $(".form-tab-bg").css({ borderColor: "transparent" });
+  $(".form-tab-circle-bg").css({ borderColor: "transparent" });
   colorObject.css(borderCss);
   $("#previewCircImg").removeClass("c1 c2 c3 c4 c5 c6 c7 c8");
   $("#previewCircImg").addClass(backgroundColorClass);

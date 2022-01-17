@@ -46,7 +46,7 @@ var actorTypePositionSelection = {
 
 // Page load first steps
 $(".preview-circle-img-wrap").hide();
-console.log("------------------------version: 02 ----------------------------");
+console.log("------------------------version: 01 ----------------------------");
 
 
 // ------------------------------------------------- SELECT ACTOR POSITION AND TYPE -------------------------------------------------
@@ -104,7 +104,10 @@ function changeCircleBackground(colorObject) {
   if (colorObject.hasClass('c8')) {
     backgroundColorClass = 'c8'
   }
-  $("#circle-background-select").css({ borderColor: "transparent" });
+  $('#circle-background-select').each(function() {
+    $(this).css({ borderColor: "transparent" });
+  });
+
   colorObject.css(borderCss);
   $("#previewCircImg").removeClass("c1 c2 c3 c4 c5 c6 c7 c8");
   $("#previewCircImg").addClass(backgroundColorClass);

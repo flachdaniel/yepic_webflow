@@ -1,4 +1,5 @@
-def videoDiv = <div class="video-item">
+var videoElement = `
+<div class="video-item">
 <div class="gallery-video-left">
     <div class="video-preview">
         <video controls>
@@ -55,3 +56,20 @@ def videoDiv = <div class="video-item">
     </div>
 </div>
 </div>
+`;
+
+MemberStack.onReady.then(function (member) {
+    fV.email = member["email"];
+    fV.name = member["name"];
+    fV.id = member["id"];
+    fV.membershipTypeId = $memberstack.membership.status;
+});
+
+function startUpSelection() {
+    $.getJSON('https://airtable-db-dot-speech2vid-api.nw.r.appspot.com//video/user/60587304809aa30004bc35cf', function(data) {
+        console.log("asd");
+        console.log(data)
+    });
+}
+
+setTimeout(startUpSelection, 1000);

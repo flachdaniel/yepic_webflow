@@ -12,9 +12,10 @@ function populateVideoHtml(jItem, video) {
     jItem.find('#actor').text(video.actor);
     jItem.find('#createdOn').text(video.video_created);
 }
+//60587304809aa30004bc35cf
 
 function startUpSelection() {
-    $.getJSON('https://airtable-db-dot-speech2vid-api.nw.r.appspot.com//video/user/60587304809aa30004bc35cf', function(data) {
+    $.getJSON('https://airtable-db-dot-speech2vid-api.nw.r.appspot.com//video/user/' + user.id, function(data) {
         var indexAfterFirstPage = 0;
 
         for (let index = 0; index < data.pages.length; ++index) {

@@ -6,7 +6,7 @@ MemberStack.onReady.then(function (member) {
     user.membershipTypeId = $memberstack.membership.status;
 });
 
-var indexAfterFirstPage = 0;
+var currentGetMoreIndex = 0;
 
 function addVideoToPage(video) {
     video_name = video.video_name
@@ -78,7 +78,7 @@ function addVideoToPage(video) {
     var videoElementHtmlString = $.parseHTML(Item)
     $("#myvideolist").append(videoElementHtmlString);
 }
-//60587304809aa30004bc35cf
+
 function loadVideosFromIndex(firstIndex) {
     for (let index = firstIndex; index < data.pages.length; ++index) {
         const videoList = data.pages[index];
@@ -91,15 +91,15 @@ function loadVideosFromIndex(firstIndex) {
             break;
         }
         console.log(index)
-        indexAfterFirstPage = index;
+        currentGetMoreIndex = index;
     }
-
 }
 
 // ------------------  LOAD FIRST PAGE VIDEOS -----------------
 function LoadFirstPageVideos() {
+    //60587304809aa30004bc35cf
     $.getJSON('https://airtable-db-dot-speech2vid-api.nw.r.appspot.com//video/user/' + user.id, function(data) {
-        loadVideosFromIndex(firstIndex);
+        loadVideosFromIndex(currentGetMoreIndex);
     });
 }
 setTimeout(LoadFirstPageVideos, 1000);
@@ -108,8 +108,7 @@ setTimeout(LoadFirstPageVideos, 1000);
 
 
 $("#button-load").click(function () {
-    loadVideosFromIndex(firstIndex);
+    loadVideosFromIndex(currentGetMoreIndex);
 });
-
 
 

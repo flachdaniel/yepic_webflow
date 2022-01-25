@@ -58,6 +58,7 @@ var videoElement = `
 </div>
 `;
 var videoElementHtmlString = $.parseHTML( videoElement )
+console.log(videoElementHtmlString);
 
 var user = {};
 MemberStack.onReady.then(function (member) {
@@ -96,11 +97,13 @@ function populateVideoHtml(jItem, video) {
     jItem.find('#createdOn').text(video.video_created);
 
     console.log('test1');
+
+
     jItem.replace("value.download_url", video.video_url);
 
 
     console.log('test2');
-    jItem.find('#createdOn').text(video.unique_webpage);
+    jItem.replace("value.unique_webpage", video.unique_webpage);
 
 
     console.log('test3');

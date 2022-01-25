@@ -70,12 +70,15 @@ MemberStack.onReady.then(function (member) {
 function startUpSelection() {
     $.getJSON('https://airtable-db-dot-speech2vid-api.nw.r.appspot.com//video/user/60587304809aa30004bc35cf', function(data) {
         console.log("asd");
-        console.log(data);
 
-        console.log(videoElementHtmlString);
+        for (const videoList of data.pages) {
+            if (typeof videoList !== 'undefined' && videoList.length > 0) {
+                console.log("na ez")
+                console.log(videoList);
+            }
+        }
 
         $("#myvideolist").append(videoElementHtmlString)
-        console.log("asd2")
     });
 }
 

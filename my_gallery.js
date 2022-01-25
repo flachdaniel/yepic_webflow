@@ -84,16 +84,15 @@ function loadVideosFromIndex(firstIndex, data) {
 
     console.log("ezzel van meghivva most: " + firstIndex);
 
-    
-    for (let index = firstIndex; index < data.pages.length; ++index) {
+
+    for (let index = firstIndex; index < data.pages.length; index++) {
         const videoList = data.pages[index];
         if (typeof videoList !== 'undefined' && videoList.length > 0) {
+            currentGetMoreIndex = index+1;
             for (const video of videoList) {
                 addVideoToPage(video);
                 console.log("ITT MENT EGY VIDI");
             }
-            console.log("index new value: " + index);
-            currentGetMoreIndex = index+1;
             break;
         }
     }

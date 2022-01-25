@@ -75,10 +75,13 @@ function startUpSelection() {
             if (typeof videoList !== 'undefined' && videoList.length > 0) {
                 console.log("na ez")
                 console.log(videoList);
+                for (const video of videoList) {
+                    $("#myvideolist").append(videoElementHtmlString)
+                }
             }
         }
 
-        $("#myvideolist").append(videoElementHtmlString)
+    (console.log("end"))
     });
 }
 

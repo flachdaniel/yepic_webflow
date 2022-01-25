@@ -89,6 +89,7 @@ function loadVideosFromIndex(firstIndex, data) {
                 console.log("ITT MENT EGY VIDI")
             }
             console.log('for vége')
+            currentGetMoreIndex = index;
             break;
         }
         console.log(index)

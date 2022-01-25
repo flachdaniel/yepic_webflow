@@ -77,7 +77,7 @@ function startUpSelection() {
                 console.log(videoList);
                 for (const video of videoList) {
                     console.log("append 1 video")
-                    $("#myvideolist").append(videoElementHtmlString.clone())
+                    $("#myvideolist").append($(videoElementHtmlString).clone());
                 }
             }
         }

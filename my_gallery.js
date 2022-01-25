@@ -74,7 +74,7 @@ function startUpSelection() {
 
         console.log(videoElementHtmlString);
 
-        $(".videolist").append(videoElementHtmlString)
+        $("#myvideolist").append(videoElementHtmlString)
         console.log("asd2")
     });
 }

@@ -89,8 +89,27 @@ function startUpSelection() {
 
 function populateVideoHtml(jItem, video) {
     jItem.find('#videoName').text(video.video_name);
-    console.log('sikerült');
-    console.log(video.video_name);
+    jItem.find('#script').text(video.script);
+    jItem.find('#actor').text(video.actor);
+    //jItem.find('#length').text(video.video_name);
+    //jItem.find('#size').text(video.video_name);
+    jItem.find('#createdOn').text(video.video_created);
+
+    console.log('test1');
+    jItem.find('source').src(video.video_url);
+
+
+    console.log('test2');
+    jItem.find('#createdOn').text(video.unique_webpage);
+
+
+    console.log('test3');
+    jItem.find('#createdOn').text(video.download_url);
+
+
+    console.log('test4');
 }
+
+
 
 setTimeout(startUpSelection, 1000);

@@ -7,6 +7,7 @@ MemberStack.onReady.then(function (member) {
 });
 
 var currentGetMoreIndex = 0;
+var data = [];
 
 function addVideoToPage(video) {
     video_name = video.video_name
@@ -79,7 +80,7 @@ function addVideoToPage(video) {
     $("#myvideolist").append(videoElementHtmlString);
 }
 
-function loadVideosFromIndex(firstIndex) {
+function loadVideosFromIndex(firstIndex, data) {
     for (let index = firstIndex; index < data.pages.length; ++index) {
         const videoList = data.pages[index];
         if (typeof videoList !== 'undefined' && videoList.length > 0) {
@@ -98,17 +99,16 @@ function loadVideosFromIndex(firstIndex) {
 // ------------------  LOAD FIRST PAGE VIDEOS -----------------
 function LoadFirstPageVideos() {
     //60587304809aa30004bc35cf
-    $.getJSON('https://airtable-db-dot-speech2vid-api.nw.r.appspot.com//video/user/' + user.id, function(data) {
-        loadVideosFromIndex(currentGetMoreIndex);
+    $.getJSON('https://airtable-db-dot-speech2vid-api.nw.r.appspot.com//video/user/' + user.id, function(fetchData) {
+        data = fetchData;
+        loadVideosFromIndex(currentGetMoreIndex, data);
     });
 }
 setTimeout(LoadFirstPageVideos, 1000);
 
 
-
-
 $("#button-load").click(function () {
-    loadVideosFromIndex(currentGetMoreIndex);
+    loadVideosFromIndex(currentGetMoreIndex, data);
 });
 
 

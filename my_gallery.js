@@ -30,7 +30,7 @@ function startUpSelection() {
             console.log(index)
             indexAfterFirstPage = index;
         }
-        
+
     });
 }
 
@@ -48,7 +48,7 @@ function addVideoToPage(video) {
                     <div class="gallery-video-left">
                         <div class="video-preview">
                             <video controls>
-                                <source :src="${video_url}">
+                                <source src="${video_url}">
                             </video>
                             <div class="eye-wrap"></div>
                         </div>
@@ -62,13 +62,13 @@ function addVideoToPage(video) {
                                 <p id="script" class="p-template">${script}</p>
                             </div>
                             <div class="tab-buttons">
-                                <a :href="${unique_webpage}" class="button w-inline-block">
+                                <a href="${unique_webpage}" class="button w-inline-block">
                                     <div>Preview</div>
                                 </a>
                                 <a href="#" class="button-light unavailable w-inline-block">
                                     <div>Edit</div>
                                 </a>
-                                <a :href="${download_url}" class="button button-gallery-share w-inline-block">
+                                <a href="${download_url}" class="button button-gallery-share w-inline-block">
                                     <div class="w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="19.079" height="19.079">
                                             <path d="m9.54 13.779 5.3-6.36h-3.18V0H7.42v7.419H4.24Zm-7.419 3.18v-8.48H.001v8.479a2.126 2.126 0 0 0 2.12 2.12h14.838a2.126 2.126 0 0 0 2.12-2.119v-8.48h-2.12v8.479Z" fill="currentColor"></path>
                                         </svg></div>

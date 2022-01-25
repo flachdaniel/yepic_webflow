@@ -96,7 +96,7 @@ function populateVideoHtml(jItem, video) {
     jItem.find('#createdOn').text(video.video_created);
 
     console.log('test1');
-    jItem.find('source').setAttribute('src', video.video_url);
+    jItem.replace("value.download_url", video.video_url);
 
 
     console.log('test2');

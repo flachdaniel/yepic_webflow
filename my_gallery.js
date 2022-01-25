@@ -57,6 +57,7 @@ var videoElement = `
 </div>
 </div>
 `;
+var videoElementHtmlString = $.parseHTML( videoElement )
 
 MemberStack.onReady.then(function (member) {
     fV.email = member["email"];
@@ -68,7 +69,12 @@ MemberStack.onReady.then(function (member) {
 function startUpSelection() {
     $.getJSON('https://airtable-db-dot-speech2vid-api.nw.r.appspot.com//video/user/60587304809aa30004bc35cf', function(data) {
         console.log("asd");
-        console.log(data)
+        console.log(data);
+
+        console.log(videoElementHtmlString);
+
+        $(".videolist").append(videoElementHtmlString)
+        console.log("asd2")
     });
 }
 

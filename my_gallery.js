@@ -84,7 +84,6 @@ function loadVideosFromIndex(firstIndex, data) {
 
     console.log("ezzel van meghivva most: " + firstIndex);
 
-
     for (let index = firstIndex; index < data.pages.length; index++) {
         const videoList = data.pages[index];
         if (typeof videoList !== 'undefined' && videoList.length > 0) {
@@ -101,7 +100,7 @@ function loadVideosFromIndex(firstIndex, data) {
 // ------------------  LOAD FIRST PAGE VIDEOS -----------------
 function LoadFirstPageVideos() {
     //60587304809aa30004bc35cf
-    $.getJSON('https://airtable-db-dot-speech2vid-api.nw.r.appspot.com//video/user/' + user.id, function(fetchData) {
+    $.getJSON('https://airtable-db-dot-speech2vid-api.nw.r.appspot.com//video/user/' + '60587304809aa30004bc35cf', function(fetchData) {
         data = fetchData;
         loadVideosFromIndex(currentGetMoreIndex, data);
     });

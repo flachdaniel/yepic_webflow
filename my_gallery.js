@@ -109,6 +109,7 @@ setTimeout(LoadFirstPageVideos, 1000);
 
 
 $("#button-load").click(function () {
+    console.log(currentGetMoreIndex);
     loadVideosFromIndex(currentGetMoreIndex, data);
 });
 

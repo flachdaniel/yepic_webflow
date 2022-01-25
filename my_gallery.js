@@ -57,9 +57,6 @@ var videoElement = `
 </div>
 </div>
 `;
-//var videoElementHtmlString = $.parseHTML( videoElement )
-//console.log(videoElementHtmlString);
-
 var user = {};
 MemberStack.onReady.then(function (member) {
     user.email = member["email"];
@@ -153,19 +150,17 @@ function startUpSelection() {
                     </div>
                     </div>
                     `;
+
                     console.log(Item);
                     console.log("iteeeem")
                     
 
-
-
-
-
-
-
+                    var videoElementHtmlString = $.parseHTML(Item)
+                    console.log("paarse");
                     //current_video = $(videoElementHtmlString).clone()
                     //populateVideoHtml(current_video, video);
-                    $("#myvideolist").append(current_video);
+                    $("#myvideolist").append(videoElementHtmlString);
+                    console.log("jeeeej")
                 }
             }
         }

@@ -89,9 +89,7 @@ function startUpSelection() {
                     unique_webpage = video.unique_webpage
                     download_url = video.download_url
 
-
-
-                    const Item = ({video_name, script, actor, video_created, video_url, unique_webpage, download_url}) => `
+                    const Item = `
                     <div class="video-item">
                     <div class="gallery-video-left">
                         <div class="video-preview">
@@ -153,24 +151,15 @@ function startUpSelection() {
 
                     console.log(Item);
                     console.log("iteeeem")
-                    
-
                     var videoElementHtmlString = $.parseHTML(Item)
-                    console.log("paarse");
                     //current_video = $(videoElementHtmlString).clone()
                     //populateVideoHtml(current_video, video);
-                    $("#myvideolist").append(videoElementHtmlString);
-                    console.log("jeeeej")
+                    $("#myvideolist").append(videoElementHtmlString.clone());
                 }
             }
         }
-
-    console.log("end2");
     });
 }
-
-
-
 
 
 setTimeout(startUpSelection, 1000);

@@ -76,12 +76,13 @@ function startUpSelection() {
                 console.log("na ez")
                 console.log(videoList);
                 for (const video of videoList) {
+                    console.log("append 1 video")
                     $("#myvideolist").append(videoElementHtmlString)
                 }
             }
         }
 
-    (console.log("end"))
+    console.log("end2");
     });
 }
 

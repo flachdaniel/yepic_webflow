@@ -86,4 +86,10 @@ function startUpSelection() {
     });
 }
 
+function populateVideoHtml (jItem, video) {
+    jItem.find('#videoName').text(video.video_name);
+    console.log('sikerült');
+    console.log(video.video_name);
+}
+
 setTimeout(startUpSelection, 1000);

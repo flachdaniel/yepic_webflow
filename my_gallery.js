@@ -59,11 +59,12 @@ var videoElement = `
 `;
 var videoElementHtmlString = $.parseHTML( videoElement )
 
+var user = {};
 MemberStack.onReady.then(function (member) {
-    fV.email = member["email"];
-    fV.name = member["name"];
-    fV.id = member["id"];
-    fV.membershipTypeId = $memberstack.membership.status;
+    user.email = member["email"];
+    user.name = member["name"];
+    user.id = member["id"];
+    user.membershipTypeId = $memberstack.membership.status;
 });
 
 function startUpSelection() {

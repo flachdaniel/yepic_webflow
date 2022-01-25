@@ -76,8 +76,9 @@ function startUpSelection() {
                 console.log("na ez")
                 console.log(videoList);
                 for (const video of videoList) {
-                    console.log("append 1 video")
-                    $("#myvideolist").append($(videoElementHtmlString).clone());
+                    current_video = $(videoElementHtmlString).clone()
+                    populateVideoHtml(current_video, video);
+                    $("#myvideolist").append(current_video);
                 }
             }
         }
@@ -86,7 +87,7 @@ function startUpSelection() {
     });
 }
 
-function populateVideoHtml (jItem, video) {
+function populateVideoHtml(jItem, video) {
     jItem.find('#videoName').text(video.video_name);
     console.log('sikerült');
     console.log(video.video_name);

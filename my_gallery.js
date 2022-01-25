@@ -148,13 +148,11 @@ function startUpSelection() {
                     </div>
                     </div>
                     `;
-
                     console.log(Item);
-                    console.log("iteeeem")
                     var videoElementHtmlString = $.parseHTML(Item)
                     //current_video = $(videoElementHtmlString).clone()
                     //populateVideoHtml(current_video, video);
-                    $("#myvideolist").append(videoElementHtmlString.clone());
+                    $("#myvideolist").append(videoElementHtmlString);
                 }
             }
         }

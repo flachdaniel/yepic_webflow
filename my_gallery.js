@@ -81,18 +81,20 @@ function addVideoToPage(video) {
 }
 
 function loadVideosFromIndex(firstIndex, data) {
+
+    console.log("ezzel van meghivva most: " + firstIndex);
     for (let index = firstIndex; index < data.pages.length; ++index) {
         const videoList = data.pages[index];
         if (typeof videoList !== 'undefined' && videoList.length > 0) {
             for (const video of videoList) {
                 addVideoToPage(video);
-                console.log("ITT MENT EGY VIDI")
+                console.log("ITT MENT EGY VIDI");
             }
-            console.log('for vége')
+            console.log("index new value FOR VÉGE: " + index);
             currentGetMoreIndex = index;
             break;
         }
-        console.log(index)
+        console.log("index new value: " + index);
         currentGetMoreIndex = index;
     }
 }
@@ -109,7 +111,6 @@ setTimeout(LoadFirstPageVideos, 1000);
 
 
 $("#button-load").click(function () {
-    console.log(currentGetMoreIndex);
     loadVideosFromIndex(currentGetMoreIndex, data);
 });
 

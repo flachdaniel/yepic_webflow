@@ -15,9 +15,7 @@ function populateVideoHtml(jItem, video) {
 
 function startUpSelection() {
     $.getJSON('https://airtable-db-dot-speech2vid-api.nw.r.appspot.com//video/user/60587304809aa30004bc35cf', function(data) {
-
-
-
+        var indexAfterFirstPage = 0;
 
         for (let index = 0; index < data.pages.length; ++index) {
             const videoList = data.pages[index];
@@ -27,9 +25,12 @@ function startUpSelection() {
                     console.log("ITT MENT EGY VIDI")
                 }
                 console.log('for vége')
+                break;
             }
             console.log(index)
+            indexAfterFirstPage = index;
         }
+        
     });
 }
 

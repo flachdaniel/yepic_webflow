@@ -7,10 +7,14 @@ MemberStack.onReady.then(function (member) {
 });
 
 function get_data() {
+    var data = {
+        user_id: user.id
+    }
+
     $.ajax({
       url: "https://hook.integromat.com/" + "jv6helyxlo7chcwz5k6k4mdm5a9314nk",
       type: "POST",
-      data: user.id,
+      data: data,
       success: function (res) {
         console.log("Data successfully received:");
         console.log(res);

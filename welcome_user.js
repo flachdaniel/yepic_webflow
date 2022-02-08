@@ -20,7 +20,10 @@ function get_data() {
       success: function (res) {
         console.log("Data successfully received:");
         console.log(res);
-        console.log(res.body);
+        const testjson = JSON.parse(res)
+        console.log(testjson);
+
+
       },
       error: function (err) {
         console.log("Error while getting data from integromat:");

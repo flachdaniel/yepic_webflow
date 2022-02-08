@@ -11,6 +11,8 @@ function get_data() {
         user_id: user.id
     }
 
+    console.log("user id: " + user.id)
+
     $.ajax({
       url: "https://hook.integromat.com/" + "jv6helyxlo7chcwz5k6k4mdm5a9314nk",
       type: "POST",

@@ -33,6 +33,7 @@ async function getCreditData(){
     //await get_data().then(credit_data => {
     console.log("2");
     console.log(credit_data);
+    console.log(credit_data.monthly_credits);
     $("#monthly_credits").text(credit_data.monthly_credits);
     $("#monthly_rewards").text(credit_data.monthly_rewards);
     $("#one_off_rewards").text(credit_data.one_off_rewards);

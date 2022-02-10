@@ -6,8 +6,7 @@ MemberStack.onReady.then(function (member) {
     user.membershipTypeId = $memberstack.membership.status;
 });
 
-
-async function doAjax() {
+async function get_data() {
   let result;
   var data = {
     user_id: user.id
@@ -42,4 +41,3 @@ async function getCreditData(){
 }
 
 setTimeout(getCreditData, 1000);
-

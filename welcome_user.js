@@ -30,7 +30,10 @@ function get_data() {
 function getCreditData(){
     get_data();
     console.log("asd");
-    $("#monthly_credits").text(credit_data.monthly_credits);
+    console.log(credit_data);
+    console.log(credit_data.monthly_credits);
+
+    $("#monthly_credits").text("asdasd");
     $("#monthly_rewards").text(credit_data.monthly_rewards);
     $("#one_off_rewards").text(credit_data.one_off_rewards);
     $("#total_credits").text(credit_data.total_credits);

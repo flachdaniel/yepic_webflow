@@ -20,7 +20,7 @@ async function get_data() {
       });
 
       console.log("Data successfully received: ");
-      return JSON.parse(result);
+      return result;
   } catch (error) {
       console.log("Error while getting data from integromat: ");
       console.error(error);
@@ -29,10 +29,12 @@ async function get_data() {
 
 async function getCreditData(){
     console.log("1");
-    const credit_data = await get_data();
-    //await get_data().then(credit_data => {
+    const response = await get_data();
     console.log("2");
+    console.log(response);
+    const credit_data = JSON.parse(response);
     console.log(credit_data);
+    //await get_data().then(credit_data => {
     console.log(credit_data.monthly_credits);
     $("#monthly_credits").text(credit_data.monthly_credits);
     $("#monthly_rewards").text(credit_data.monthly_rewards);

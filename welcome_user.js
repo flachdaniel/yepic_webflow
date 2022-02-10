@@ -11,7 +11,7 @@ async function get_data() {
         user_id: user.id
     }
     console.log("user id: " + user.id)
-    $.ajax({
+    await $.ajax({
       url: "https://hook.integromat.com/" + "jv6helyxlo7chcwz5k6k4mdm5a9314nk",
       type: "POST",
       data: data,
@@ -31,16 +31,15 @@ async function get_data() {
 
 async function getCreditData(){
     console.log("1");
-    await get_data().then(credit_data=>{
-      console.log("2");
-      console.log(credit_data);
+    const credit_data = await get_data();
+    console.log("2");
+    console.log(credit_data);
 
-      $("#monthly_credits").text(credit_data.monthly_credits);
-      $("#monthly_rewards").text(credit_data.monthly_rewards);
-      $("#one_off_rewards").text(credit_data.one_off_rewards);
-      $("#total_credits").text(credit_data.total_credits);
-      $("#credits_available").text(credit_data.credits_available);
-      });
+    $("#monthly_credits").text(credit_data.monthly_credits);
+    $("#monthly_rewards").text(credit_data.monthly_rewards);
+    $("#one_off_rewards").text(credit_data.one_off_rewards);
+    $("#total_credits").text(credit_data.total_credits);
+    $("#credits_available").text(credit_data.credits_available);
 }
 
 setTimeout(getCreditData, 1000);

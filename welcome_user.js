@@ -27,7 +27,7 @@ async function get_data() {
     });
   }
 
-function getCreditData(){
+async function getCreditData(){
     const credit_data = await get_data();
     console.log(credit_data);
     console.log(credit_data.monthly_credits);

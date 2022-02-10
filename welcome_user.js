@@ -18,6 +18,7 @@ async function get_data() {
       success: function (res) {
         console.log("Data successfully received:");
         console.log(res)
+        console.log(JSON.stringify(res));
         const json_response = JSON.parse(res);
         console.log(json_response);
         console.log(json_response.monthly_credits);

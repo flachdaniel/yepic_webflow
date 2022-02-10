@@ -18,7 +18,7 @@ function get_data() {
       data: data,
       success: function (res) {
         console.log("Data successfully received:");
-        credit_data = JSON.parse(res)
+        credit_data = res
       },
       error: function (err) {
         console.log("Error while getting data from integromat:");
@@ -32,8 +32,7 @@ function getCreditData(){
     console.log("asd");
     console.log(credit_data);
     console.log(credit_data.monthly_credits);
-
-    $("#monthly_credits").text("asdasd");
+ 
     $("#monthly_rewards").text(credit_data.monthly_rewards);
     $("#one_off_rewards").text(credit_data.one_off_rewards);
     $("#total_credits").text(credit_data.total_credits);

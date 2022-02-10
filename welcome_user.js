@@ -19,6 +19,7 @@ async function get_data() {
         console.log("Data successfully received:");
         console.log(res)
         const json_response = JSON.parse(res);
+        console.log(json_response);
         return json_response;
       },
       error: function (err) {

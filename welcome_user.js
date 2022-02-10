@@ -20,6 +20,7 @@ async function get_data() {
         console.log(res)
         const json_response = JSON.parse(res);
         console.log(json_response);
+        console.log(json_response.monthly_credits);
         return json_response;
       },
       error: function (err) {

@@ -28,7 +28,9 @@ async function get_data() {
   }
 
 async function getCreditData(){
+    console.log("1");
     const credit_data = await get_data();
+    console.log("2");
     console.log(credit_data);
     console.log(credit_data.monthly_credits);
  

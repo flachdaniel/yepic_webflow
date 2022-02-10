@@ -18,6 +18,7 @@ function get_data() {
       data: data,
       success: function (res) {
         console.log("Data successfully received:");
+        console.log(res);
         credit_data = res
       },
       error: function (err) {

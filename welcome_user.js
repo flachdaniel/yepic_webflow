@@ -1,5 +1,4 @@
 var user = {};
-var credit_data = {};
 MemberStack.onReady.then(function (member) {
     user.email = member["email"];
     user.name = member["name"];
@@ -7,7 +6,7 @@ MemberStack.onReady.then(function (member) {
     user.membershipTypeId = $memberstack.membership.status;
 });
 
-function get_data() {
+async function get_data() {
     var data = {
         user_id: user.id
     }
@@ -19,7 +18,7 @@ function get_data() {
       success: function (res) {
         console.log("Data successfully received:");
         console.log(res);
-        credit_data = res
+        return res
       },
       error: function (err) {
         console.log("Error while getting data from integromat:");
@@ -29,8 +28,7 @@ function get_data() {
   }
 
 function getCreditData(){
-    get_data();
-    console.log("asd");
+    const credit_data = await get_data();
     console.log(credit_data);
     console.log(credit_data.monthly_credits);
  

@@ -28,16 +28,15 @@ async function get_data() {
 
 async function getCreditData(){
     console.log("1");
-    const credit_data = await get_data();
-    console.log("2");
-    console.log(credit_data);
-    console.log(credit_data.monthly_credits);
- 
-    $("#monthly_rewards").text(credit_data.monthly_rewards);
-    $("#one_off_rewards").text(credit_data.one_off_rewards);
-    $("#total_credits").text(credit_data.total_credits);
-    $("#credits_available").text(credit_data.credits_available);
-    
+    await get_data().then(result=>{
+      console.log("2");
+
+      $("#monthly_credits").text(credit_data.monthly_credits);
+      $("#monthly_rewards").text(credit_data.monthly_rewards);
+      $("#one_off_rewards").text(credit_data.one_off_rewards);
+      $("#total_credits").text(credit_data.total_credits);
+      $("#credits_available").text(credit_data.credits_available);
+      console.log(result)});
 }
 
 setTimeout(getCreditData, 1000);

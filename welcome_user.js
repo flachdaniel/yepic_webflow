@@ -17,7 +17,9 @@ async function get_data() {
       data: data,
       success: function (res) {
         console.log("Data successfully received:");
-        return JSON.parse(res);
+        console.log(res)
+        const json_response = JSON.parse(res);
+        return json_response;
       },
       error: function (err) {
         console.log("Error while getting data from integromat:");

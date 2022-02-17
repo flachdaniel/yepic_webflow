@@ -95,7 +95,6 @@ function loadVideosFromIndex(firstIndex, data) {
 
 // ------------------  LOAD FIRST PAGE VIDEOS -----------------
 function LoadFirstPageVideos() {
-    //60587304809aa30004bc35cf
     $.getJSON('https://airtable-db-dot-speech2vid-api.nw.r.appspot.com//video/user/' + user.id, function(fetchData) {
         data = fetchData;
         loadVideosFromIndex(currentGetMoreIndex, data);

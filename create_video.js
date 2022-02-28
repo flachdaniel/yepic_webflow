@@ -647,7 +647,7 @@ function playPreview() {
       "Audio preview can take up to 10 seconds for some voices. We are working on a fix."
     );
     $("#aboveScript").css({ borderColor: "transparent" });
-    $("#video-script").css({ borderColor: "transparent" });
+    $("#video-script").css({ borderColor: "#bccce5" });
 
     if (!previewPaused) {
       _previewAudio.pause();

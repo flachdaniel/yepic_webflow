@@ -347,7 +347,7 @@ function send_request() {
     fV.circleSize = $("#size-circle").val();
     fV.size = "";
   }
-  
+
   if (fV.videoName.length < 1) {
     formErrors = true;
     $(".form-name-wrap").css(redBorderCss);
@@ -428,7 +428,7 @@ $(".form-name-wrap").keyup(function () {
 
 // TEXT COUNTER
 $("#video-script").keyup(function () {
-  $("#video-script").css({ borderColor: "transparent" });
+  $("#video-script").css({ borderColor: "#bccce5" });
   textCounter("video-script", "counter", 1000);
 });
 function textCounter(field, field2, maxlimit) {

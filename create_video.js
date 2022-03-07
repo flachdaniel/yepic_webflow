@@ -529,11 +529,31 @@ async function uploadImage() {
     success: function (data) {
       fV.uploadFilename = fileName;
       fV.link = data.mediaLink;
+      start_move_background_to_private_cloud_function(fileName);
+      console.log("Moving to another bucket finished");
     },
     error: function () {
       alert("Something went wrong, try again!");
     },
   });
+}
+
+async function start_move_background_to_private_cloud_function(image_name) {
+  post_request = {blob_name : image_name};
+  let result;
+  console.log("Moving to another bucket started");
+  try {
+      result = await $.ajax({
+          url: "https://europe-west2-yepicai-backend.cloudfunctions.net/public_to_private",
+          type: 'POST',
+          data: post_request
+      });
+      console.log("Data successfully received: ");
+      return result;
+  } catch (error) {
+      console.log("Error while executing script: ");
+      console.error(error);
+  }
 }
 
 var playerPaused = true;

@@ -541,7 +541,7 @@ async function uploadImage() {
 async function start_move_background_to_private_cloud_function(image_name) {
   post_request = {"blob_name" : image_name};
   let result;
-  console.log("Moving to another bucket started");
+  console.log("Moving to another bucket started" + image_name);
   try {
       result = await $.ajax({
           url: "https://europe-west2-yepicai-backend.cloudfunctions.net/public_to_private",

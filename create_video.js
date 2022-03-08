@@ -546,6 +546,7 @@ async function start_move_background_to_private_cloud_function(image_name) {
       result = await $.ajax({
           url: "https://europe-west2-yepicai-backend.cloudfunctions.net/public_to_private",
           type: 'POST',
+          crossDomain: true,
           data: post_request,
           headers: {
             "accept": "application/json",

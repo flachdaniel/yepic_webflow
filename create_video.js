@@ -548,7 +548,7 @@ async function start_move_background_to_private_cloud_function(image_name) {
           type: 'POST',
           data: post_request,
           headers: {
-            "accept": "application/json",
+            "accept": "text/html",
             "Access-Control-Allow-Origin":"*"
         }
       });

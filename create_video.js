@@ -549,7 +549,7 @@ async function start_move_background_to_private_cloud_function(image_name) {
           crossDomain: true,
           data: post_request,
           headers: {
-            "accept": "application/x-www-form-urlencoded",
+            "accept": "application/x-www-form-urlencoded; charset=UTF-8",
             "Access-Control-Allow-Origin":"*"
         }
       });

@@ -539,7 +539,6 @@ async function uploadImage() {
 }
 
 async function start_move_background_to_private_cloud_function(image_name) {
-  post_request = {"blob_name" : image_name};
   let result;
   console.log("Moving to another bucket started" + image_name);
   try {
@@ -547,11 +546,10 @@ async function start_move_background_to_private_cloud_function(image_name) {
           url: "https://europe-west2-yepicai-backend.cloudfunctions.net/public_to_private",
           type: 'POST',
           crossDomain: true,
-          data: post_request,
-          headers: {
-            "accept": "application/x-www-form-urlencoded; charset=UTF-8",
-            "Access-Control-Allow-Origin":"*"
-        }
+          data: {
+            blob_name: image_name
+          },
+          dataType: "json"
       });
       console.log("Data successfully received: ");
       return result;

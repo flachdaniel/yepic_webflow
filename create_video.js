@@ -546,10 +546,11 @@ async function start_move_background_to_private_cloud_function(image_name) {
           url: "https://europe-west2-yepicai-backend.cloudfunctions.net/public_to_private",
           type: 'POST',
           crossDomain: true,
-          data: {
-            blob_name: image_name
-          },
-          dataType: "json"
+          data: JSON.stringify({"blob_name" : image_name}),
+          dataType: "json",
+          headers: {
+            'Access-Control-Allow-Origin': '*',
+          }
       });
       console.log("Data successfully received: ");
       return result;

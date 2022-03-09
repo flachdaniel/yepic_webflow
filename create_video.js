@@ -547,6 +547,7 @@ async function start_move_background_to_private_cloud_function(image_name) {
           type: 'POST',
           crossDomain: true,
           data: JSON.stringify({"blob_name" : image_name}),
+          contentType: "application/json",
           dataType: "json",
           headers: {
             'Access-Control-Allow-Origin': '*',

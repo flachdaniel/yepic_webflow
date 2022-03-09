@@ -550,7 +550,7 @@ async function start_move_background_to_private_cloud_function(image_name) {
           contentType: "application/json",
           dataType: "json",
           headers: {
-            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Origin': ['https://yepic-ai-new.webflow.io', 'https://www.yepic.ai'],
           }
       });
       console.log("Data successfully received: ");

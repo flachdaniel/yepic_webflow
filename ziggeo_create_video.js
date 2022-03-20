@@ -50,22 +50,22 @@ async function post_airtable_data(videoTitle, inputLanguage, outputLanguage, rec
           type: 'POST',
           data: data
       });
-      console.log("Data successfully sent: " + data);
+      console.log("Data successfully sent to integromat.");
       return result;
   } catch (error) {
-      console.log("Error while getting data from integromat: ");
+      console.log("Error while posting data to integromat.");
       console.error(error);
   }
 }
 function pageInit() {
-  console.log("Page init 0");
-  $(".form-video-success-wrap").hide();
+  console.log("Page init 1");
 }
+// -------------------- INIT -----------------
 
+$(".form-video-success-wrap").hide();
 setTimeout(pageInit, 1000);
 
 $("#vid-form-submit").on("click", function () {
-  submit_error = false
   videoTitle = $("#Video-Title").val();
   console.log("hehe");
   console.log(videoTitle)
@@ -77,24 +77,7 @@ $("#vid-form-submit").on("click", function () {
   if (record_id == "undefined") {
     console.log("Missing video data");
     $("#ziggeo-embed").css(redBorderCss);
-    submit_error = true;
-  }
-  if (videoTitle == "" || videoTitle == null || videoTitle == undefined) {
-    console.log("Missing video data");
-    $("#Video-Title").css(redBorderCss);
-    submit_error = true;
-  }
-  if (inputLanguage == "") {
-    console.log("Missing video data");
-    $("#Input-Language").css(redBorderCss);
-    submit_error = true;
-  }
-  if (outputLanguage == "") {
-    console.log("Missing video data");
-    $("#Output-Language").css(redBorderCss);
-    submit_error = true;
-  }
-  if (submit_error == false) {
+  } else {
     post_airtable_data(videoTitle, inputLanguage, outputLanguage, record_id);
     $("#form-video-wrap").hide();
     $(".form-video-success-wrap").show();
@@ -104,14 +87,6 @@ $("#vid-form-submit").on("click", function () {
 $("#ziggeo-embed").on("click", function () {
   this.css(defaultBorderCss);
 });
-$("#Video-Title").on("click", function () {
-  this.css(defaultBorderCss);
-});
-$("#Input-Language").on("click", function () {
-  this.css(defaultBorderCss);
-});
-$("#Output-Language").on("click", function () {
-  this.css(defaultBorderCss);
-});
+
 
 

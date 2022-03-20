@@ -66,11 +66,15 @@ setTimeout(pageInit, 1000);
 
 $("#vid-form-submit").on("click", function () {
   console.log("saját onclick submit")
+  e.preventDefault();
+  e.stopPropagation();
+  return false;
 });
 
 $("#video-form").submit(function(e) {
   console.log("preventdefaultos")
   e.preventDefault();
+  e.stopPropagation();
   videoTitle = $("#Video-Title").val();
   console.log("hehe");
   console.log(videoTitle)
@@ -87,6 +91,7 @@ $("#video-form").submit(function(e) {
     $("#form-video-wrap").hide();
     $(".form-video-success-wrap").show();
   }
+  return false;
 });
   
 $("#ziggeo-embed").on("click", function () {

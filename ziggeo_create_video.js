@@ -58,7 +58,8 @@ async function post_airtable_data(videoTitle, inputLanguage, outputLanguage, rec
   }
 }
 function pageInit() {
-  console.log("Page init 1");
+  console.log("Page init 0");
+  $("#form-video-success-wrap").hide();
 }
 
 setTimeout(pageInit, 1000);
@@ -95,6 +96,8 @@ $("#vid-form-submit").on("click", function () {
   }
   if (submit_error == false) {
     post_airtable_data(videoTitle, inputLanguage, outputLanguage, record_id);
+    $("#form-video-wrap").hide();
+    $("#form-video-success-wrap").show();
   }
 });
 

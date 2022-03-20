@@ -40,7 +40,7 @@ async function post_airtable_data(videoTitle, inputLanguage, outputLanguage, rec
           type: 'POST',
           data: data
       });
-      console.log("Data successfully sent: ");
+      console.log("Data successfully sent: " + data);
       return result;
   } catch (error) {
       console.log("Error while getting data from integromat: ");
@@ -48,21 +48,15 @@ async function post_airtable_data(videoTitle, inputLanguage, outputLanguage, rec
   }
 }
 function pageInit() {
-  console.log("Page init");
+  console.log("Page init 1");
 }
 
 setTimeout(pageInit, 1000);
 
 $("#vid-form-submit").on("click", function () {
-  console.log("ASD");
   videoTitle = $("#Video-Title").val();
-  console.log(videoTitle);
-
-  inputLanguage = $("#Input-Language").val();
-  console.log(inputLanguage);
-
-  outputLanguage = $("#Output-Language").val();
-  console.log(outputLanguage);
+  inputLanguage = $("#Input-Language").find(":selected").text();
+  outputLanguage = $("#Output-Language").find(":selected").text();
 
   if (record_id == "undefined") {
     alert("Please record or upload a video!");

@@ -47,8 +47,14 @@ async function post_airtable_data(videoTitle, inputLanguage, outputLanguage, rec
       console.error(error);
   }
 }
+function pageInit() {
+  console.log("Page init");
+}
+
+setTimeout(pageInit, 1000);
 
 $("#vid-form-submit").on("click", function () {
+  console.log("ASD");
   videoTitle = $("#Video-Title").val();
   console.log(videoTitle);
 
@@ -63,6 +69,5 @@ $("#vid-form-submit").on("click", function () {
   } else {
     post_airtable_data(videoTitle, inputLanguage, outputLanguage, record_id);
   }
-
 });
 

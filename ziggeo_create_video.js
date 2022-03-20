@@ -58,14 +58,19 @@ async function post_airtable_data(videoTitle, inputLanguage, outputLanguage, rec
   }
 }
 function pageInit() {
-  console.log("Page init 1");
+  console.log("Page init 0");
 }
 // -------------------- INIT -----------------
 
-$(".form-video-success-wrap").hide();
 setTimeout(pageInit, 1000);
 
 $("#vid-form-submit").on("click", function () {
+  console.log("saját onclick submit")
+});
+
+$("#video-form").submit(function(e) {
+  console.log("preventdefaultos")
+  e.preventDefault();
   videoTitle = $("#Video-Title").val();
   console.log("hehe");
   console.log(videoTitle)
@@ -83,10 +88,8 @@ $("#vid-form-submit").on("click", function () {
     $(".form-video-success-wrap").show();
   }
 });
-
+  
 $("#ziggeo-embed").on("click", function () {
   this.css(defaultBorderCss);
 });
-
-
 

@@ -18,7 +18,7 @@ ziggeoApp.on("ready", function() {
     // Now you can listen for the verified event
     recorder.on("verified", function() {
       var videoToken = recorder.get('video'); // Video token is available after the event is triggered
-      alert("The video with token " + videoToken + " has been submitted!");
+      console.log("The video with token " + videoToken + " has been submitted!");
       record_id = videoToken;
     });
 });

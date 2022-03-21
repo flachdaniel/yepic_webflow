@@ -66,9 +66,9 @@ setTimeout(pageInit, 1000);
 
 
 $(document).ready(function () {
+
   $("#Video-Submit").on("click", function () {
     console.log("hehe");
-  
     form_submit_error = false;
     videoTitle = $("#Video-Title").val();
     console.log(videoTitle)
@@ -76,83 +76,46 @@ $(document).ready(function () {
     console.log(inputLanguage);
     outputLanguage = $("#Output-Language").find(":selected").text();
     console.log(outputLanguage);
-  
     if (record_id == "undefined") {
       console.log("Missing video data");
       $("#ziggeo-embed").css(redBorderCss);
       form_submit_error = true;
     }
     if (videoTitle == "") {
-      $("#ziggeo-embed").css(redBorderCss);
+      $("#Video-Title").css(redBorderCss);
       form_submit_error = true;
     }
     if (inputLanguage == "Input Language") {
-      $("#ziggeo-embed").css(redBorderCss);
+      $("#Input-Language").css(redBorderCss);
       form_submit_error = true;
     }
     if (outputLanguage == "Output Language") {
-      $("#ziggeo-embed").css(redBorderCss);
+      $("#Output-Language").css(redBorderCss);
       form_submit_error = true;
     }
-    
     if (form_submit_error == false) {
       post_airtable_data(videoTitle, inputLanguage, outputLanguage, record_id);
       $("#form-video-wrap").hide();
       $(".form-video-success-wrap").show();
     }
   });
-});
 
-$("#Video-Submit").on("click", function () {
-  console.log("hehe");
+  $("#ziggeo-embed").on("click", function () {
+    console.log("test");
+    this.css(defaultBorderCss);
+  });
+  $("#Video-Title").on("click", function () {
+    console.log("test2");
+    this.css(defaultBorderCss);
+  });
+  $("#Input-Language").on("click", function () {
+    console.log("test3");
+    this.css(defaultBorderCss);
+  });
+  $("#Output-Language").on("click", function () {
+    console.log("test4");
+    this.css(defaultBorderCss);
+  });
 
-  form_submit_error = false;
-  videoTitle = $("#Video-Title").val();
-  console.log(videoTitle)
-  inputLanguage = $("#Input-Language").find(":selected").text();
-  console.log(inputLanguage);
-  outputLanguage = $("#Output-Language").find(":selected").text();
-  console.log(outputLanguage);
-
-  if (record_id == "undefined") {
-    console.log("Missing video data");
-    $("#ziggeo-embed").css(redBorderCss);
-    form_submit_error = true;
-  }
-  if (videoTitle == "") {
-    $("#ziggeo-embed").css(redBorderCss);
-    form_submit_error = true;
-  }
-  if (inputLanguage == "Input Language") {
-    $("#ziggeo-embed").css(redBorderCss);
-    form_submit_error = true;
-  }
-  if (outputLanguage == "Output Language") {
-    $("#ziggeo-embed").css(redBorderCss);
-    form_submit_error = true;
-  }
-  
-  if (form_submit_error == false) {
-    post_airtable_data(videoTitle, inputLanguage, outputLanguage, record_id);
-    $("#form-video-wrap").hide();
-    $(".form-video-success-wrap").show();
-  }
-});
-  
-$("#ziggeo-embed").on("click", function () {
-  console.log("test");
-  this.css(defaultBorderCss);
-});
-$("#Video-Title").on("click", function () {
-  console.log("test2");
-  this.css(defaultBorderCss);
-});
-$("#Input-Language").on("click", function () {
-  console.log("test3");
-  this.css(defaultBorderCss);
-});
-$("#Output-Language").on("click", function () {
-  console.log("test4");
-  this.css(defaultBorderCss);
 });
 

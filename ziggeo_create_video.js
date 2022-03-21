@@ -64,19 +64,11 @@ function pageInit() {
 
 setTimeout(pageInit, 1000);
 
-$("#vid-form-submit").on("click", function () {
-  console.log("saját onclick submit")
-  e.preventDefault();
-  e.stopPropagation();
-  return false;
-});
-
-$("#video-form").submit(function(e) {
-  console.log("preventdefaultos")
-  e.preventDefault();
-  e.stopPropagation();
-  videoTitle = $("#Video-Title").val();
+$("#Video-Submit").on("click", function () {
   console.log("hehe");
+
+  form_submit_error = false;
+  videoTitle = $("#Video-Title").val();
   console.log(videoTitle)
   inputLanguage = $("#Input-Language").find(":selected").text();
   console.log(inputLanguage);
@@ -86,15 +78,39 @@ $("#video-form").submit(function(e) {
   if (record_id == "undefined") {
     console.log("Missing video data");
     $("#ziggeo-embed").css(redBorderCss);
-  } else {
+    form_submit_error = true;
+  }
+  if (videoTitle == "") {
+    $("#ziggeo-embed").css(redBorderCss);
+    form_submit_error = true;
+  }
+  if (inputLanguage == "Input Language") {
+    $("#ziggeo-embed").css(redBorderCss);
+    form_submit_error = true;
+  }
+  if (outputLanguage == "Output Language") {
+    $("#ziggeo-embed").css(redBorderCss);
+    form_submit_error = true;
+  }
+  
+  if (form_submit_error == false) {
     post_airtable_data(videoTitle, inputLanguage, outputLanguage, record_id);
     $("#form-video-wrap").hide();
     $(".form-video-success-wrap").show();
   }
-  return false;
+
 });
   
 $("#ziggeo-embed").on("click", function () {
+  this.css(defaultBorderCss);
+});
+$("#Video-Title").on("click", function () {
+  this.css(defaultBorderCss);
+});
+$("#Input-Language").on("click", function () {
+  this.css(defaultBorderCss);
+});
+$("#Output-Language").on("click", function () {
   this.css(defaultBorderCss);
 });
 

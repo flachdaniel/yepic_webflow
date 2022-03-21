@@ -101,20 +101,16 @@ $(document).ready(function () {
   });
 
   $("#ziggeo-embed").on("click", function () {
-    console.log("test");
-    this.css(defaultBorderCss);
+    $("#ziggeo-embed").css(defaultBorderCss);
   });
   $("#Video-Title").on("click", function () {
-    console.log("test2");
-    this.css(defaultBorderCss);
+    $("#Video-Title").css(defaultBorderCss);
   });
   $("#Input-Language").on("click", function () {
-    console.log("test3");
-    this.css(defaultBorderCss);
+    $("#Input-Language").css(defaultBorderCss);
   });
   $("#Output-Language").on("click", function () {
-    console.log("test4");
-    this.css(defaultBorderCss);
+    $("#Output-Language").css(defaultBorderCss);
   });
 
 });

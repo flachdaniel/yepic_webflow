@@ -2,7 +2,6 @@ const defaultBorderCss = {
   borderColor: "#5038ee",
   borderStyle: "solid",
   borderWidth: "2px"
-  // bcb8cf40
 };
 const redBorderCss = {
   borderColor: "red",
@@ -68,7 +67,6 @@ setTimeout(pageInit, 1000);
 $(document).ready(function () {
 
   $("#Video-Submit").on("click", function () {
-    console.log("hehe");
     form_submit_error = false;
     videoTitle = $("#Video-Title").val();
     console.log(videoTitle)

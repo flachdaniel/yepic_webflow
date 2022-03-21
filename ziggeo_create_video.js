@@ -30,6 +30,7 @@ ziggeoApp.on("ready", function() {
       var videoToken = recorder.get('video'); // Video token is available after the event is triggered
       console.log("The video with token " + videoToken + " has been submitted!");
       record_id = videoToken;
+      $("#ziggeo-embed").css(defaultBorderCss);
     });
 });
 

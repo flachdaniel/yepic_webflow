@@ -6,7 +6,7 @@ MemberStack.onReady.then(function (member) {
     user.membershipTypeId = $memberstack.membership.status;
 });
 
-var getUrlParameter = function getUrlParameter(sParam) {
+function getUrlParameter(sParam) {
     var sPageURL = window.location.search.substring(1),
         sURLVariables = sPageURL.split('&'),
         sParameterName,
@@ -20,7 +20,7 @@ var getUrlParameter = function getUrlParameter(sParam) {
         }
     }
     return false;
-};
+}
 
 async function send_data(custom_id) {
   let result;

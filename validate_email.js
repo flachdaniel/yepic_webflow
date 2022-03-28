@@ -6,21 +6,6 @@ MemberStack.onReady.then(function (member) {
     user.membershipTypeId = $memberstack.membership.status;
 });
 
-function getUrlParameter(sParam) {
-    var sPageURL = window.location.search.substring(1),
-        sURLVariables = sPageURL.split('&'),
-        sParameterName,
-        i;
-
-    for (i = 0; i < sURLVariables.length; i++) {
-        sParameterName = sURLVariables[i].split('=');
-
-        if (sParameterName[0] === sParam) {
-            return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
-        }
-    }
-    return false;
-}
 
 async function send_data(custom_id) {
   let result;
@@ -44,7 +29,7 @@ async function send_data(custom_id) {
 
 async function verify_email(){
     console.log("1111");
-    var custom_id = getUrlParameter('id');
+    //var custom_id = getUrlParameter('id');
     console.log(custom_id);
     await send_data(custom_id);
     console.log("Email is verified");

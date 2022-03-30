@@ -298,7 +298,7 @@ function isEmailVerified(id) {
   var data = {
     user_id: id
   }
-  console.log("user id: " + user.id)
+  console.log("user id: " + user_id)
   try {
       result = $.ajax({
           url: "https://hook.integromat.com/" + "l9zpmiqwiliash3j77wb7urvmlonuv4h",
@@ -317,6 +317,14 @@ function isEmailVerified(id) {
 
 function InitializeIsUserVerified() {
   isEmailVerified(fV.id);
+
+  if (true) {
+    $(".form-create-button-denied-wrap").css("display", "block");
+    $(".popup-email-verify-wrap").css("display", "block");
+    $(".form-listen-denied-wrap").css("display", "block");
+
+    //$("#account-verify-link").css();
+  }
 
 }
 

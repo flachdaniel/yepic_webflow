@@ -29,7 +29,7 @@ function send_data(custom_id) {
   }
   console.log("user id: " + user.id)
   try {
-      result = await $.ajax({
+      result = $.ajax({
           url: "https://hook.integromat.com/" + "51lp3k11p566j8q3s7a8v22q4tx29the",
           type: 'POST',
           data: data

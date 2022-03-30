@@ -319,7 +319,7 @@ async function InitializeIsUserVerified() {
   const response = await isEmailVerified(fV.id);
   const is_email_verified_json = JSON.parse(response);
   
-  if (is_email_verified_json.is_email_verified) {
+  if (!is_email_verified_json.is_email_verified) {
     $(".form-create-button-denied-wrap").css("display", "block");
     $(".popup-email-verify-wrap").css("display", "block");
     $(".form-listen-denied-wrap").css("display", "block");

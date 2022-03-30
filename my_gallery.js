@@ -60,14 +60,6 @@ function addVideoToPage(video) {
                                     <div id="actor">${actor}</div>
                                 </div>
                                 <div class="margin-bottom margin-s">
-                                    <div class="t-preview-var">Length:</div>
-                                    <div id="length"></div>
-                                </div>
-                                <div class="margin-bottom margin-s">
-                                    <div class="t-preview-var">Size:</div>
-                                    <div id="size"></div>
-                                </div>
-                                <div class="margin-bottom margin-s">
                                     <div class="t-preview-var">Created on:</div>
                                     <div id="createdOn">${video_created}</div>
                                 </div>

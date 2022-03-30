@@ -315,7 +315,7 @@ async function isEmailVerified(id) {
 
 }
 
-function InitializeIsUserVerified() {
+async function InitializeIsUserVerified() {
   const response = await isEmailVerified(fV.id);
   console.log(response);
   const is_email_verified_json = JSON.parse(response);

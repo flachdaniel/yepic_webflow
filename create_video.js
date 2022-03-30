@@ -323,7 +323,7 @@ async function InitializeIsUserVerified() {
     $(".form-create-button-denied-wrap").css("display", "block");
     $(".popup-email-verify-wrap").css("display", "block");
     $(".form-listen-denied-wrap").css("display", "block");
-    $(".form-listen-wrap").css("display", "none");
+    //$(".form-listen-wrap").css("display", "none");
     //$("#account-verify-link").attr("href", "http://www.google.com/");
   }
 

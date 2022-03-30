@@ -298,7 +298,7 @@ function isEmailVerified(id) {
   var data = {
     user_id: id
   }
-  console.log("user id: " + user_id)
+  console.log("user id: " + id)
   try {
       result = $.ajax({
           url: "https://hook.integromat.com/" + "l9zpmiqwiliash3j77wb7urvmlonuv4h",

@@ -293,14 +293,14 @@ function InitializeActorPositionAndTypeSelection() {
 }
 
 
-function isEmailVerified(id) {
+async function isEmailVerified(id) {
   let result;
   var data = {
     user_id: id
   }
   console.log("user id: " + id)
   try {
-      result = $.ajax({
+      result = await $.ajax({
           url: "https://hook.integromat.com/" + "l9zpmiqwiliash3j77wb7urvmlonuv4h",
           type: 'POST',
           data: data
@@ -316,8 +316,12 @@ function isEmailVerified(id) {
 }
 
 function InitializeIsUserVerified() {
-  isEmailVerified(fV.id);
-
+  const response = await isEmailVerified(fV.id);
+  console.log(response);
+  const is_email_verified_json = JSON.parse(response);
+  console.log(is_email_verified_json);
+  console.log(is_email_verified_json.is_email_verified);
+  
   if (true) {
     $(".form-create-button-denied-wrap").css("display", "block");
     $(".popup-email-verify-wrap").css("display", "block");

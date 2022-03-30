@@ -22,7 +22,7 @@ function getUrlParameter(sParam) {
     return false;
 }
 
-async function send_data(custom_id) {
+function send_data(custom_id) {
   let result;
   var data = {
     custom_id: custom_id
@@ -42,11 +42,9 @@ async function send_data(custom_id) {
   }
 }
 
-async function verify_email(){
-    console.log("1112");
+function verify_email(){
     var custom_id = getUrlParameter('id');
-    console.log(custom_id);
-    await send_data(custom_id);
+    send_data(custom_id);
     console.log("Email is verified");
 }
 

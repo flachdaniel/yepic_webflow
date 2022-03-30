@@ -44,7 +44,7 @@ async function send_data(custom_id) {
 
 async function verify_email(){
     console.log("1112");
-    //var custom_id = getUrlParameter('id');
+    var custom_id = getUrlParameter('id');
     console.log(custom_id);
     await send_data(custom_id);
     console.log("Email is verified");

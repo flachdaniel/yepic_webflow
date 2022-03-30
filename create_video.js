@@ -43,6 +43,12 @@ var actorTypePositionSelection = {
   classNameFullBodyImage: "preview-img-mid",
   classNameCircleImage: "m2",
 };
+MemberStack.onReady.then(function (member) {
+  fV.email = member["email"];
+  fV.name = member["name"];
+  fV.id = member["id"];
+  fV.membershipTypeId = $memberstack.membership.status;
+});
 
 // Page load first steps
 $(".preview-circle-img-wrap").hide();
@@ -286,19 +292,42 @@ function InitializeActorPositionAndTypeSelection() {
   fV.position = actorTypePositionSelection.fullBody;
 }
 
+
+function isEmailVerified(id) {
+  let result;
+  var data = {
+    user_id: id
+  }
+  console.log("user id: " + user.id)
+  try {
+      result = $.ajax({
+          url: "https://hook.integromat.com/" + "l9zpmiqwiliash3j77wb7urvmlonuv4h",
+          type: 'POST',
+          data: data
+      });
+      console.log("Is user verified?: ");
+      console.log(result);
+      return result;
+  } catch (error) {
+      console.log("Error while getting data to integromat: ");
+      console.error(error);
+  }
+
+}
+
+function InitializeIsUserVerified() {
+  isEmailVerified(fV.id);
+
+}
+
 function startUpSelection() {
   InitializeActorPositionAndTypeSelection();
   InitializeSelections();
   cleanUpVoiceSelectionBasedOnActorGender('actor-male');
+  InitializeIsUserVerified()
 }
 setTimeout(startUpSelection, 1000);
 
-MemberStack.onReady.then(function (member) {
-  fV.email = member["email"];
-  fV.name = member["name"];
-  fV.id = member["id"];
-  fV.membershipTypeId = $memberstack.membership.status;
-});
 
 // ------------------------------------------------- SELECT VOICE (this part is not refactored yet) -------------------------------------------------
 function checkListenPreview() {

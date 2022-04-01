@@ -205,10 +205,16 @@ function cleanUpVoiceSelectionBasedOnActorGender(actorGender) {
   }
 }
 
-$(".cv-lang-radio").on("click", function () {
-  console.log("lefut");
-  cleanUpVoiceSelectionBasedOnActorGender(selectedActorGener);
+jQuery(document).ready(function($){
+  
+  $(".cv-lang-radio").on("click", function () {
+    console.log("MOST MEGY A cleanup");
+    cleanUpVoiceSelectionBasedOnActorGender(selectedActorGener);
+  });
+
 });
+
+
 
 //----------- ACTOR selection -----------
 $(".form-actor-select-wrap").on("click", ".form-actor", function () {

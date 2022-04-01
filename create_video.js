@@ -23,6 +23,7 @@ var defaultBackground = "url(https://assets-global.website-files.com/603a1632f3d
 var VL = {};
 var backgroundClass = " ";
 var newClass;
+var selectedActorGender = 'actor-male'
 var fV = {
   actor: "Alex",
   actorPositionType: "full-body",
@@ -204,6 +205,11 @@ function cleanUpVoiceSelectionBasedOnActorGender(actorGender) {
   }
 }
 
+$(".cv-lang-radio").on("click", function () {
+  console.log("lefut");
+  cleanUpVoiceSelectionBasedOnActorGender(selectedActorGener);
+});
+
 //----------- ACTOR selection -----------
 $(".form-actor-select-wrap").on("click", ".form-actor", function () {
   fV.videoName = $("#video-name").val();
@@ -212,9 +218,11 @@ $(".form-actor-select-wrap").on("click", ".form-actor", function () {
 
   actorGender = $(this);
   if (actorGender.hasClass('actor-female')) {
+    selectedActorGener = 'actor-female';
     cleanUpVoiceSelectionBasedOnActorGender('actor-female');
   };
   if (actorGender.hasClass('actor-male')) {
+    selectedActorGener = 'actor-male';
     cleanUpVoiceSelectionBasedOnActorGender('actor-male');
   };
 

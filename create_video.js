@@ -206,7 +206,7 @@ function cleanUpVoiceSelectionBasedOnActorGender(actorGender) {
 }
 
 jQuery(document).ready(function($){
-  
+
   $(".cv-lang-radio").on("click", function () {
     console.log("MOST MEGY A cleanup");
     cleanUpVoiceSelectionBasedOnActorGender(selectedActorGener);
@@ -326,17 +326,16 @@ async function isEmailVerified(id) {
       console.log("Error while getting data to integromat: ");
       console.error(error);
   }
-
 }
 
-async function reSendEmailVerification() {
+function reSendEmailVerification() {
   let result;
   var data = {
     user_id: fV.id
   }
   console.log("user id: " + fV.id)
   try {
-      result = await $.ajax({
+      result = $.ajax({
           url: "https://hook.integromat.com/" + "ubqms8wkb0xo67gwkjpo18m7qhcwmeqh",
           type: 'POST',
           data: data
@@ -347,7 +346,6 @@ async function reSendEmailVerification() {
       console.log("Error while re-sending verification email");
       console.error(error);
   }
-
 }
 
 async function InitializeIsUserVerified() {

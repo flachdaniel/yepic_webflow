@@ -320,7 +320,7 @@ async function reSendEmailVerification() {
   var data = {
     user_id: fV.id
   }
-  console.log("user id: " + id)
+  console.log("user id: " + fV.id)
   try {
       result = await $.ajax({
           url: "https://hook.integromat.com/" + "ubqms8wkb0xo67gwkjpo18m7qhcwmeqh",

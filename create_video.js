@@ -315,6 +315,27 @@ async function isEmailVerified(id) {
 
 }
 
+async function reSendEmailVerification() {
+  let result;
+  var data = {
+    user_id: fV.id
+  }
+  console.log("user id: " + id)
+  try {
+      result = await $.ajax({
+          url: "https://hook.integromat.com/" + "ubqms8wkb0xo67gwkjpo18m7qhcwmeqh",
+          type: 'POST',
+          data: data
+      });
+      console.log("Verification email resent");
+      return result;
+  } catch (error) {
+      console.log("Error while re-sending verification email");
+      console.error(error);
+  }
+
+}
+
 async function InitializeIsUserVerified() {
   const response = await isEmailVerified(fV.id);
   const is_email_verified_json = JSON.parse(response);
